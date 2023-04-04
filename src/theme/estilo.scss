@@ -1,0 +1,121 @@
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/display.css";
+
+/* Basic CSS for apps built with Ionic  */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+  font-family: 'regular';
+  src: url(~src/assets/fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'semi-bold';
+  src: url(~src/assets/fonts/Montserrat-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: 'medium';
+  src: url(~src/assets/fonts/Montserrat-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'bold';
+  src: url(~src/assets/fonts/Montserrat-Bold.ttf);
+}
+
+* {
+  font-family: 'regular';
+}
+
+ion-label {
+  display: block;
+  color: var(--ion-color-app-font);
+}
+
+ion-button {
+  --background: linear-gradient(to right, #7dded1, #18655D);
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  font-family: 'medium';
+}
+
+.otp-input {
+  width: 45px !important;
+  font-size: 18px !important;
+  height: 45px !important;
+  border: 0px !important;
+  border-bottom: 2px solid lightgray !important;
+  border-radius: 0px !important;
+  background: transparent !important;
+}
+
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+.event-datail-container {
+  display: none;
+}
+
+.table-bordered,
+tr,
+th,
+thead,
+td {
+  border: 0px !important;
+  color: white;
+  font-size: 14px;
+}
+
+.monthview-selected {
+  background-color: #2BAD9C;
+}
+
+  ion-toolbar {
+    ion-title {
+      color: white;
+      font-family: 'semi-bold' !important;
+      font-size: 16px;
+    }
+
+    ion-select {
+      font-family: 'semi-bold';
+      color: var(--ion-color-primary);
+      width: fit-content;
+    }
+
+    ion-button {
+      margin: 0;
+      --background: transparent;
+      font-family: 'semi-bold';
+
+      ion-icon {
+        margin-right: 5px;
+      }
+    }
+  }
+
+ion-input {
+  font-family: 'medium' !important;
+}
+
+ion-modal.custom-modal {
+  .modal-wrapper {
+    width: 100% !important;
+    border-top-right-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  &.bottom {
+    align-items: flex-end !important;
+  }
+
+  --height: 80%;
+  align-items: flex-end;
+}

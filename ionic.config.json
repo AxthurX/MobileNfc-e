@@ -1,0 +1,7 @@
+{
+  "name": "Centerclima",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

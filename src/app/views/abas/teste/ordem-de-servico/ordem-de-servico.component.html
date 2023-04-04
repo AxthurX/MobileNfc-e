@@ -1,0 +1,96 @@
+<ion-content>
+  <h2 class="text-light alert alert-dark m-auto">Ordem de serviço</h2>
+
+    <form class="row" novalidate>
+      <div class="col-md-12 stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label">Nome Completo</label>
+                  <input maxlength="60" [(ngModel)]="nome" type="text" class="form-control" placeholder="Digite o nome completo" name="nome" required >
+                  <p class="text-danger mt-1" *ngIf="">Nome completo é obrigatório</p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="email" />
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="mb-3">
+                  <label class="form-label">CPF/CNPJ</label>
+                  <input type="text" class="form-control" [(ngModel)]="cpf_cnpj" placeholder="input" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="mb-3">
+                  <label class="form-label">CEP</label>
+                  <input type="text" class="form-control" type="text" mask="00000-000" [(ngModel)]="cep" (ngModelChange)="onConsutarCEP()" name="cep" id="cep" maxlength="60" placeholder="CEP" required minlength="4">
+                    <p class="text-danger mt-1" *ngIf="">Campo obrigatório</p>
+                    <p class="text-danger mt-1" *ngIf="">CEP inválido</p>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="mb-3">
+                  <label class="form-label">Logradouro</label>
+                  <input type="text" class="form-control" type="text" [(ngModel)]="logradouro" id="logradouro" maxlength="60" placeholder="Logradouro" required>
+                  <p class="text-danger mt-1" *ngIf="">Campo obrigatório</p>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="mb-3">
+                  <label class="form-label">Número</label>
+                  <input type="text" class="form-control" [(ngModel)]="numero" name="numero" id="numero" maxlength="10" placeholder="Número" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-7">
+                <div class="mb-3">
+                  <label class="form-label">Complemento</label>
+                  <input type="text" class="form-control" type="text" [(ngModel)]="complemento" name="complemento" id="complemento" maxlength="100" placeholder="Complemento" />
+                </div>
+              </div>
+              <div class="col-sm-5">
+                <div class="mb-3">
+                  <label class="form-label">Telefone</label>
+                  <input type="text" class="form-control" mask="(00) 0000-0000||(00) 0 0000-0000" [(ngModel)]="telefone" name="telefone" id="telefone" placeholder="Ex.: (00) 0 0000-0000" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="mb-3">
+                  <label class="form-label">UF</label>
+                  <input type="text" class="form-control" [(ngModel)]="ufSelecionada" [ngModelOptions]="{standalone: true}" (change)="onAlterouUF(ordem_de_servico)" placeholder="Selecione a UF">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="mb-3">
+                  <label class="form-label">Município</label>
+                  <input type="text" class="form-control" placeholder="Selecione o Município" [(ngModel)]="municipioSelecionado" [ngModelOptions]="{standalone: true}" (change)="onAlterouMunicipio(ordem_de_servico)">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="mb-3">
+                  <label class="form-label">Bairro</label>
+                  <input type="text" class="form-control" placeholder="Selecione o Bairro" [(ngModel)]="bairroSelecionado" [ngModelOptions]="{standalone: true}" required>
+                  <p class="text-danger mt-1" *ngIf="submitted && !bairroSelecionado">Campo obrigatório</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+  <br/>
+  <hr/>
+  <div>
+    <button class="btn btn-dark p-3 rounded-pill" (click)="goTo('informacao-basica')">Configurar A ordem de serviço</button>
+  </div>

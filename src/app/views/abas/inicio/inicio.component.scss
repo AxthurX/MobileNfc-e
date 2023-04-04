@@ -1,0 +1,120 @@
+@import "~src/theme/estilo";
+
+.main_content_div {
+  width: 100%;
+  .extra_header {
+    background: var(--ion-color-app-light);
+    padding: 35px;
+    position: relative;
+
+    .flex_div {
+      display: flex;
+      align-items: center;
+
+      .logo_text {
+        font-size: 20px;
+        font-family: 'bold';
+
+        span {
+          font-family: 'bold';
+          color: var(--ion-color-primary);
+        }
+      }
+
+      .small_text {
+        font-size: 14px;
+      }
+
+      ion-icon {
+        position: relative;
+        width: 200px;
+        margin-left: 16px;
+      }
+    }
+
+    ion-input {
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+      height: 50px;
+      --padding-start: 8px;
+      --padding-end: 16px;
+      border-radius: 25px;
+      background: white;
+      position: absolute;
+      bottom: -25px;
+      font-family: 'medium';
+
+      ion-icon {
+        margin-left: 16px;
+        color: gray;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .content_div {
+    padding: 0px !important;
+
+    .grid_box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .box_div {
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 140px;
+        height: 140px;
+        margin: 16px;
+
+        ion-icon {
+          width: 70px;
+          font-size: 120px;
+        }
+
+        ion-label {
+          text-align: center;
+          font-family: 'semi-bold';
+          font-size: 14px;
+          color: var(--ion-color-primary);
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .title_lbl {
+      font-family: 'semi-bold';
+      color: var(--ion-color-primary);
+      margin-bottom: 16px;
+      margin-top: 16px;
+    }
+
+    .flex_slider {
+      display: flex;
+      display: 100%;
+      overflow-y: scroll;
+
+      .inner_slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 10px;
+
+        ion-icon {
+          width: 50px !important;
+          min-width: 50px;
+        }
+
+        ion-label {
+          margin-top: 7px;
+          font-size: 13px;
+          display: block;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

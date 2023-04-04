@@ -1,0 +1,27 @@
+<ion-header class="osahan-nav">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-btn-voltar #btnVoltar></app-btn-voltar>
+    </ion-buttons>
+    <ion-title> Inicio </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <div class="content_div">
+      <div class="grid_box">
+        <div class="box_div" color="camera-outline" (click)="showTelaDeFotos()">
+          <ion-icon name="camera-outline"></ion-icon>
+          <ion-label>Fotos</ion-label>
+        </div>
+      </div>
+      <div class="grid_box">
+        <div class="box_div" color="medium" (click)="showTelaDeTeste()">
+          <ion-icon name="hourglass-outline"></ion-icon>
+          <ion-label>Comprovante</ion-label>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

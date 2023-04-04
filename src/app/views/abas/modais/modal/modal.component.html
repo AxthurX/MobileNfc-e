@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-btn-voltar [fechar_modal]="true"></app-btn-voltar>
+    </ion-buttons>
+    <ion-title>Teste modais</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-content class="ion-padding">
+    <ion-button id="open-modal" expand="block">Open</ion-button>
+    <ion-modal
+      #modal
+      trigger="open-modal"
+      [swipeToClose]="true"
+      [canDismiss]="canDismiss"
+      [presentingElement]="presentingElement"
+    >
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Modal</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="modal.dismiss()">Close</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <p>Você será avisado ao fechar este modal</p>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-content>
+</ion-content>
