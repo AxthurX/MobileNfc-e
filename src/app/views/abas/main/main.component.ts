@@ -3,13 +3,12 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-teste',
-  templateUrl: './teste.component.html',
-  styleUrls: ['./teste.component.scss'],
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss'],
 })
-export class TesteComponent implements OnInit {
-
-  constructor(private modal: ModalController, private rota: Router) { }
+export class MainComponent implements OnInit {
+  constructor(private modal: ModalController, private rota: Router) {}
 
   ngOnInit() {}
 

@@ -78,7 +78,7 @@ export class OverlayService {
   }
 
   notificarErroPadrao(
-    e:any,
+    e: any,
     mensagem: string = 'Ops, algo deu errado, tente novamente'
   ) {
     this.showToast(mensagem, 'danger');

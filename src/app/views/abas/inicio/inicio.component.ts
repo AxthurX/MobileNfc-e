@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { TesteComponent } from '../teste/teste.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -8,7 +9,7 @@ import { TesteComponent } from '../teste/teste.component';
   styleUrls: ['./inicio.component.scss'],
 })
 export class InicioComponent {
-  constructor(private modal: ModalController) {}
+  constructor(private modal: ModalController, private rota: Router) {}
 
   async showTelaDeFotos() {
     const modal = await this.modal.create({
@@ -34,5 +35,9 @@ export class InicioComponent {
     });
 
     return await modal.present();
+  }
+
+  goTo(rota: any) {
+    this.rota.navigate([rota]);
   }
 }

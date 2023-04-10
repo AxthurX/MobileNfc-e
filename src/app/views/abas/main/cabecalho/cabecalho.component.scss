@@ -20,8 +20,8 @@ table {
 
 .b {
   border-radius: 100%;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 ion-grid {
@@ -45,4 +45,9 @@ ion-grid {
   ion-row:last-child {
     border-bottom: 1px solid black;
   }
+}
+
+.word-break {
+  word-break: break-all;
+  font-size: 12px;
 }

@@ -13,10 +13,10 @@
 
       .logo_text {
         font-size: 20px;
-        font-family: 'bold';
+        font-family: "bold";
 
         span {
-          font-family: 'bold';
+          font-family: "bold";
           color: var(--ion-color-primary);
         }
       }
@@ -41,7 +41,7 @@
       background: white;
       position: absolute;
       bottom: -25px;
-      font-family: 'medium';
+      font-family: "medium";
 
       ion-icon {
         margin-left: 16px;
@@ -77,7 +77,7 @@
 
         ion-label {
           text-align: center;
-          font-family: 'semi-bold';
+          font-family: "semi-bold";
           font-size: 14px;
           color: var(--ion-color-primary);
           margin-top: 10px;
@@ -86,7 +86,7 @@
     }
 
     .title_lbl {
-      font-family: 'semi-bold';
+      font-family: "semi-bold";
       color: var(--ion-color-primary);
       margin-bottom: 16px;
       margin-top: 16px;

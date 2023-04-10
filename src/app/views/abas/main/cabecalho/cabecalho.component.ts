@@ -11,4 +11,7 @@ export class CabecalhoComponent  implements OnInit {
 
   ngOnInit() {}
 
+  downloadPdf() {
+    window.print()
+  }
 }

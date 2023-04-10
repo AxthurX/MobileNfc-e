@@ -37,6 +37,11 @@ import { SharedModule } from '../../core/shared.module';
             loadChildren: () =>
               import('./teste/teste.module').then((m) => m.TesteModule),
           },
+          {
+            path: 'ordem-de-servico',
+            loadChildren: () =>
+              import('./teste/ordem-de-servico/ordem-de-servico.module').then((m) => m.OrdemDeServicoModule),
+          },
         ],
       },
     ]),

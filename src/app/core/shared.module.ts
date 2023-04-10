@@ -3,16 +3,12 @@ import { CommonModule } from '@angular/common';
 import { IonicModule, NavParams } from '@ionic/angular';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BtnVoltarComponent } from './components/btn-voltar.component';
-import { CabecalhoComponent } from '../views/abas/teste/cabecalho/cabecalho.component';
+import { CabecalhoComponent } from '../views/abas/main/cabecalho/cabecalho.component';
+
 
 @NgModule({
-  declarations: [BtnVoltarComponent,CabecalhoComponent ],
-  imports: [
-    CommonModule,
-    IonicModule,
-    ReactiveFormsModule,
-    FormsModule,
-  ],
+  declarations: [BtnVoltarComponent, CabecalhoComponent],
+  imports: [CommonModule, IonicModule, ReactiveFormsModule, FormsModule],
 
   exports: [
     BtnVoltarComponent,
@@ -21,7 +17,7 @@ import { CabecalhoComponent } from '../views/abas/teste/cabecalho/cabecalho.comp
     IonicModule,
     FormsModule,
     BtnVoltarComponent,
-    CabecalhoComponent
+    CabecalhoComponent,
   ],
   providers: [NavParams],
 })

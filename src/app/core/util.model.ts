@@ -133,24 +133,24 @@ export class Util {
     return [
       {
         tipo: 'boleto',
-        id: 0
+        id: 0,
       },
       {
         tipo: 'transferencia bancaria',
-        id: 1
+        id: 1,
       },
       {
         tipo: 'cartão de credito',
-        id: 2
+        id: 2,
       },
       {
         tipo: 'cartão de debito',
-        id: 3
+        id: 3,
       },
       {
         tipo: 'pix',
-        id: 4
+        id: 4,
       },
-    ]
+    ];
   }
 }

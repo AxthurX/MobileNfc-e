@@ -30,29 +30,9 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'informacao-basica',
-    loadChildren: () =>
-      import('./views/abas/teste/informacao-basica/informacao-basica.module').then((m) => m.InformacaoBasicaModule)
-  },
-  {
     path: 'ordem-de-servico',
     loadChildren: () =>
-      import('./views/abas//teste/ordem-de-servico/ordem-de-servico.module').then((m) => m.OrdemDeServicoModule)
-  },
-  {
-    path: 'pagamentos',
-    loadChildren: () =>
-      import('./views/abas/teste/pagamentos/pagamentos.module').then((m) => m.PagamentosModule)
-  },
-  {
-    path: 'pecas',
-    loadChildren: () =>
-      import('./views/abas/teste/pecas/pecas.module').then((m) => m.PecasModule)
-  },
-  {
-    path: 'servicos',
-    loadChildren: () =>
-      import('./views/abas/teste/servicos/servicos.module').then((m) => m.ServicosModule)
+      import('./views/abas/teste/ordem-de-servico/ordem-de-servico.module').then((m) => m.OrdemDeServicoModule)
   },
 ];
 @NgModule({
