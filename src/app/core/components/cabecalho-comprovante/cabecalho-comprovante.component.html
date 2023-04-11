@@ -1,0 +1,61 @@
+<div class="card mb-2 {{ GetClasse() }}">
+  <div class="p-1">
+  <!--   <div *ngIf="objComprovante.estoque_locais" class="d-flex justify-content-between mb-2">
+      <div class="text-secondary">
+        <span style="font-size: 12px">Local estoque</span> <br />
+        <b>{{ objComprovante.estoque_locais.id_erp }} -
+          {{ objComprovante.estoque_locais.descricao }}</b>
+      </div>
+    </div>
+ -->
+
+    <div class="d-flex justify-content-between mb-2">
+      <div class="d-flex justify-content-between mb-2">
+        <div class="text-secondary">
+          <span style="font-size: 12px">Data do balanço</span> <br />
+          <b>{{ objComprovante.data | date : "dd/MM/yyyy HH:mm" }}</b>
+        </div>
+      </div>
+      <div class="text-secondary">
+        <span style="font-size: 12px">Finalizado</span> <br />
+        <b *ngIf="objComprovante.finalizado === true">SIM</b> <b *ngIf="objComprovante.finalizado === false">NÃO</b>
+      </div>
+    </div>
+
+
+    <div *ngIf="objComprovante.id_nuvem" class="d-flex justify-content-between mb-2">
+      <div class="text-secondary">
+        <span style="font-size: 12px">Sincronizado em</span> <br />
+        <b>{{ objComprovante.sincronizado_em }}</b>
+      </div>
+      <div class="text-secondary" >
+        <span style="font-size: 12px">Cód. nuvem</span> <br />
+        <b>{{ objComprovante.id_nuvem }}</b>
+      </div>
+    </div>
+
+
+<!--     <div  class="d-flex justify-content-between mb-2">
+      <div class="text-secondary">
+        <span style="font-size: 12px">Qtde de produtos</span> <br />
+        <b *ngIf="objComprovante.produtos" color="primary">{{ objComprovante.produtos.length }}</b>
+      </div>
+ -->
+
+      <div class="text-secondary">
+        <span style="font-size: 12px">Saldo novo</span> <br />
+        <b color="primary">{{ objComprovante.quantidade_produtos_lancados | number : "1.0-3" }}</b>
+      </div>
+    </div>
+
+
+
+    <ng-container *ngIf="objComprovante.status_manipulacao === 1">
+      <p class="text-center">Sincronizando com o servidor online...</p>
+      <ion-progress-bar color="primary" type="indeterminate"></ion-progress-bar>
+    </ng-container>
+    <ng-container *ngIf="objComprovante.status_manipulacao === 2">
+      <p class="text-center">Excluindo...</p>
+      <ion-progress-bar color="danger" type="indeterminate"></ion-progress-bar>
+    </ng-container>
+  </div>

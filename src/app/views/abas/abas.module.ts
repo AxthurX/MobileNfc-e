@@ -33,14 +33,14 @@ import { SharedModule } from '../../core/shared.module';
               import('./modais/modais.module').then((m) => m.ModaisModule),
           },
           {
-            path: 'teste',
+            path: 'main',
             loadChildren: () =>
-              import('./teste/teste.module').then((m) => m.TesteModule),
+              import('./main/main.module').then((m) => m.MainModule),
           },
           {
-            path: 'ordem-de-servico',
+            path: 'comprovante',
             loadChildren: () =>
-              import('./teste/ordem-de-servico/ordem-de-servico.module').then((m) => m.OrdemDeServicoModule),
+              import('./main/comprovante/comprovante.module').then((m) => m.ComprovanteModule),
           },
         ],
       },

@@ -1,0 +1,64 @@
+<ion-header class="osahan-nav">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-btn-voltar></app-btn-voltar>
+    </ion-buttons>
+    <ion-title>Comprovante </ion-title>
+    <ion-buttons slot="primary">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding order-list-page" color="light">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Arraste para atualizar"
+      refreshingSpinner="circles" refreshingText="Atualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-segment mode="ios" [value]="abaSelecionada" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="pendentes">
+      <ion-label>Sinc.Pendente ({{ pendentes.length }})</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="sincronizados">
+      <ion-label>Sincronizados ({{ sincronizados.length }})</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <br />
+
+  <ng-template #exibirDados>
+    <ng-container *ngIf="abaSelecionada === 'pendentes'">
+      <ion-progress-bar *ngIf="sincronizando === true" type="indeterminate"></ion-progress-bar>
+      <ion-button [disabled]="sincronizando === true" (click)="sincronizarTudo()" expand="block">
+        <ion-icon *ngIf="sincronizando === false" slot="start" name="sync-outline"></ion-icon>
+        <ion-spinner *ngIf="sincronizando === true" name="bubbles"></ion-spinner>
+        Sincronizar tudo
+      </ion-button>
+      <ion-progress-bar *ngIf="sincronizando === true" type="indeterminate">
+      </ion-progress-bar>
+      <app-cabecalho-comprovante *ngFor="let objComprovante of pendentes; let i = index"
+        (click)="mostrarOpcoesComprovante(objComprovante, i)" [objComprovante]="objComprovante.dados_json">
+      </app-cabecalho-comprovante>
+    </ng-container>
+
+    <ng-container *ngIf="abaSelecionada === 'sincronizados'">
+      <app-cabecalho-comprovante *ngFor="let objComprovante of sincronizados; let i = index"
+        (click)="mostrarOpcoesComprovante(objComprovante, i)" [objComprovante]="objComprovante.dados_json">
+      </app-cabecalho-comprovante>
+    </ng-container>
+  </ng-template>
+
+  <br />
+  <br />
+  <br />
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="AbrirTelaComprovante()">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="AbrirTelaDetalhe()">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,199 @@
+<ion-header class="osahan-nav">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-btn-voltar [fechar_modal]="true"></app-btn-voltar>
+    </ion-buttons>
+    <ion-title>Imprimir comprovante</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding order-list-page" color="dark">
+  <div #imprimir id="imprimir">
+
+    <div class="container-lg">
+      <div class="p-1 d-flex mb-3">
+        <img src="../../../../../assets/images/center-clima.png" class="circulo rounded-circle" align="left" />
+        <div class="mr-4 ion-margin-start center">
+          <h5 class="ion-text-start fw-bold text-black h5">Center Clima Climatização</h5>
+          <table class="table mb-0">
+            <tbody>
+              <tr>
+                <td class="border-0 py-1 pl-0">OSMAR LEITE ALGUMA COISA</td>
+                <td class="border-0 py-1 pl-0">centerclimalta@gmail.com</td>
+              </tr>
+              <tr>
+                <td class="border-0 py-1 pl-0">CNPJ: 12.345.100/0001</td>
+                <td class="border-0 py-1 pl-0">+55 69 9992533635</td>
+              </tr>
+              <tr>
+                <td class="border-0 py-1 pl-0">Rua center clima</td>
+              </tr>
+              <tr>
+                <td class="border-0 py-1 pl-0">Porto velho-RO</td>
+              </tr>
+              <tr>
+                <td class="border-0 py-1 p-lg-0">76807874</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      <div class="mb-3">
+        <h6>Levando Satisfação aos nossos clientes atrasvés das melhores soluções de climatização</h6>
+        <h6>@center_clima_osmarfilho</h6>
+      </div>
+
+      <div>
+        <h3 class="text-light alert alert-dark m-auto text-dark font-700">Ordem de Serviço</h3>
+        <table class="table p-sm-1">
+          <tbody class="">
+            <tr>
+              <td class="border-0 py-1 pt-3">Mark</td>
+              <td class="border-0 py-1 pt-3">Mark</td>
+            </tr>
+            <tr>
+              <td class="border-0 py-1">Jacob</td>
+              <td class="border-0 py-1">Jacob</td>
+            </tr>
+            <tr>
+              <td class="border-0 py-1" colspan="2">Larry the Bird</td>
+            </tr>
+            <tr>
+              <td class="border-0 py-1" colspan="2">Larry the Bird</td>
+            </tr>
+            <tr>
+              <td class="border-0 py-1" colspan="2">Larry the Bird</td>
+            </tr>
+            <tr>
+              <td class="border-0 py-1" colspan="2">Larry the Bird</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 class="alert alert-dark m-auto text-dark font-700">Infromaçoes Basicas</h3>
+          <p class="py-1 mb-0 h6">Observações</p>
+          <p>Os valores das instalações são de acorde com a quantidade de aparelhos, capacidade termica de cada um e difuldade na execução do serviço durente a obra e quantidade de material ultizado</p>
+      </div>
+      <div>
+        <h3 class="alert alert-dark m-auto text-dark font-700 alert m-auto">Serviços</h3>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label color="primary" position="stacked">
+                  Descrição
+                </ion-label>
+                <input class="native-input sc-ion-input-md" type="text" maxlength="100" />
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label color="primary" position="stacked">
+                  Preço
+                </ion-label>
+                <input class="native-input sc-ion-input-md" prefix="R$ " mask="separator.2" thousandSeparator=","
+                  maxlength="8" />
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div>
+        <h3 class="alert alert-dark m-auto text-dark font-700 alert m-auto">Peças</h3>
+        <div class="container-fluid mt-5 d-flex w-100">
+          <div class="table-responsive w-100 row d-flex justify-content-between align-content-start">
+            <div>
+              <p>Descrição</p>
+              <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+            </div>
+            <table class="table table-bordered w-50" align="right">
+              <tbody>
+                <tr class="text-end mb-3">
+                  <td class="border-0 mb-3">Unidade</td>
+                  <td class="border-0 mb-3">Preço Unitario</td>
+                  <td class="border-0 mb-3">Qtd.</td>
+                  <td class="border-0 mb-3">Preço</td>
+                </tr>
+                <tr class="text-end">
+                  <td class="border-0" colspan="3">Serviços</td>
+                  <td class="border-0">$272</td>
+                </tr>
+                <tr class="text-end">
+                  <td class="border-0" colspan="3">Peças</td>
+                  <td class="border-0">$1500</td>
+                </tr>
+                <tr class="text-end">
+                  <td class="border-0" colspan="3">Subtotal</td>
+                  <td class="border-0">$30</td>
+                </tr>
+                <tr class="text-end">
+                  <td class="border-0" colspan="3">Desconto sobre serviços (7%)</td>
+                  <td class="border-0">$30</td>
+                </tr>
+                <tr class="text-end">
+                  <td class="border-0" colspan="3">Desconto sobre peças (7%)</td>
+                  <td class="border-0">$30</td>
+                </tr>
+                <tr class="text-end">
+                  <td class="border-0 alert alert-dark" colspan="3">Total</td>
+                  <td class="border-0">$30</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="alert alert-dark m-auto text-dark font-700 alert m-auto">Pagamento</h3>
+        <div class="container-fluid mt-5 d-flex justify-content-center w-100">
+          <div class="table-responsive w-100">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                      <th>Description</th>
+                      <th class="text-end">Quantity</th>
+                      <th class="text-end">Unit cost</th>
+                      <th class="text-end">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-end">
+                    <td class="text-start">PSD to html conversion</td>
+                    <td>02</td>
+                    <td>$55</td>
+                    <td>$110</td>
+                  </tr>
+                  <tr class="text-end">
+                    <td class="text-start">Package design</td>
+                    <td>08</td>
+                    <td>$34</td>
+                    <td>$272</td>
+                  </tr>
+                  <tr class="text-end">
+                    <td class="text-start">Html template development</td>
+                    <td>03</td>
+                    <td>$500</td>
+                    <td>$1500</td>
+                  </tr>
+                  <tr class="text-end">
+                    <td class="text-start">Redesign</td>
+                    <td>01</td>
+                    <td>$30</td>
+                    <td>$30</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+
+
+
+      <h3 class="alert alert-dark m-auto text-dark font-700 alert m-auto">Garantia</h3>
+      <h5 class="alert alert-dark m-auto text-dark font-700 alert m-auto">Garantia</h5>
+    </div>
+  </div>
+</ion-content>

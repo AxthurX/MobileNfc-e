@@ -20,17 +20,10 @@ import { MainComponent } from './main.component';
               import('../modais/fotos/fotos.module').then((m) => m.FotosModule),
           },
           {
-            path: 'cabecalho',
+            path: 'comprovante',
             loadChildren: () =>
-              import('../main/cabecalho/cabecalho.module').then(
-                (m) => m.CabecalhoModule
-              ),
-          },
-          {
-            path: 'ordem-de-servico',
-            loadChildren: () =>
-              import('../main/ordem-de-servico/ordem-de-servico.module').then(
-                (m) => m.OrdemDeServicoModule
+              import('../main/comprovante/comprovante.module').then(
+                (m) => m.ComprovanteModule
               ),
           },
         ],
@@ -38,4 +31,4 @@ import { MainComponent } from './main.component';
     ]),
   ],
 })
-export class TesteModule {}
+export class MainModule {}

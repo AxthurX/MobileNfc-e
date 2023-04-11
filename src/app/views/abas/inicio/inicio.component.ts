@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { TesteComponent } from '../teste/teste.component';
 import { Router } from '@angular/router';
+import { MainComponent } from '../main/main.component';
 
 @Component({
   selector: 'app-inicio',
@@ -26,7 +26,7 @@ export class InicioComponent {
 
   async showTelaDeTeste() {
     const modal = await this.modal.create({
-      component: TesteComponent,
+      component: MainComponent,
     });
 
     modal.onDidDismiss().then((dataReturned) => {

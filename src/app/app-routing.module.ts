@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ComprovanteModule } from './views/abas/main/comprovante/comprovante.module';
 
 const routes: Routes = [
   {
@@ -24,15 +25,9 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'cabecalho',
+    path: 'comprovante',
     loadChildren: () =>
-      import('./views/abas/teste/cabecalho/cabecalho.module').then((m) => m.CabecalhoModule
-      ),
-  },
-  {
-    path: 'ordem-de-servico',
-    loadChildren: () =>
-      import('./views/abas/teste/ordem-de-servico/ordem-de-servico.module').then((m) => m.OrdemDeServicoModule)
+      import('./views/abas/main/comprovante/comprovante.module').then((m) => m.ComprovanteModule)
   },
 ];
 @NgModule({

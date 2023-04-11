@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export class OrdemDeServico {
+export class Comprovante {
   nome: string;
   email: string;
   cpf_cnpj: string;
