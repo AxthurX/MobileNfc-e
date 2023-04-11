@@ -9,36 +9,14 @@ export class Comprovante {
   complemento: string;
   bairro: string;
   telefone: string;
-  ufSelecionada: UF;
-  municipioSelecionado: Municipio;
-  bairroSelecionado: Bairro;
-}
-
-export class Bairro {
-  id: number;
-  descricao: string;
-  id_municipio: number;
-  id_erp: number;
-  id_banco_dados: number;
-}
-
-export class UF {
-  id: number;
-  descricao: string;
-  sigla: string;
-  codigo: string;
-  id_pais: number;
-  aliquota_icms_interna: number;
-  aliquota_fcp_interna: number;
-  dias_feriados_estaduais: number;
-}
-
-export class Municipio {
-  id: number;
-  id_uf: number;
-  percentual: number;
-  dias_feriados_municipais: number;
-  descricao: string;
-  codigo: string;
-  zona_franca: boolean;
+  observaocao_info: string;
+  descricao_servico: string
+  preco_servico: string
+  descricao_pecas: string;
+  unidade_pecas: string;
+  preço_unitario_pecas: string;
+  quantidade_pecas: string
+  preco_pecas: string;
+  periodo_garantia: string;
+  codicoes_garantia: string
 }

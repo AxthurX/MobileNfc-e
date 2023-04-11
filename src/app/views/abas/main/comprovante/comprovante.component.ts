@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Util } from 'src/app/core/util.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OperacaoComprovante } from '../../../../core/operacao-comprovante.model';
-import { AuthService, DadosEmpresa } from 'src/app/core/service/auth.service';
-import { ActionSheetButton, ActionSheetController, ModalController } from '@ionic/angular';
-import { OverlayService } from 'src/app/core/service/overlay.service';
+import { DadosEmpresa } from 'src/app/core/service/auth.service';
+import {
+  ActionSheetButton,
+  ActionSheetController,
+  ModalController,
+} from '@ionic/angular';
 import { DetalheComprovanteComponent } from './detalhe-comprovante/detalhe-comprovante.component';
 
 @Component({
@@ -35,15 +38,10 @@ export class ComprovanteComponent implements OnInit {
   doRefresh(event: any) {
     setTimeout(() => {
       event.target.complete();
-      this.OnConsultar();
     }, 100);
   }
 
   async ngOnInit() {
-    this.OnConsultar();
-  }
-
-  async OnConsultar() {
   }
 
   segmentChanged(ev: any) {
@@ -70,7 +68,10 @@ export class ComprovanteComponent implements OnInit {
     // this.sincronizando = false;
   }
 
-  async mostrarOpcoesComprovante(comprovante: OperacaoComprovante, index: number) {
+  async mostrarOpcoesComprovante(
+    comprovante: OperacaoComprovante,
+    index: number
+  ) {
     const buttons: ActionSheetButton[] = [];
     buttons.push({
       text: 'Copiar',
@@ -109,7 +110,7 @@ export class ComprovanteComponent implements OnInit {
         icon: 'sync',
         handler: async () => {
           if (!comprovante.dados_json.status_manipulacao) {
-            console.log('a')
+            console.log('a');
           } else {
             Util.confirm(
               'Não é possível sincronizar COMPROVANTE, deseja reabrir a comprovante para alterá-la?',
@@ -125,9 +126,7 @@ export class ComprovanteComponent implements OnInit {
         text: 'Cancelar',
         icon: 'trash',
         handler: () => {
-          Util.confirm('Excluindo comprovante', async () => {
-
-          });
+          Util.confirm('Excluindo comprovante', async () => {});
         },
       });
     }
@@ -146,8 +145,10 @@ export class ComprovanteComponent implements OnInit {
     await actionSheet.present();
   }
 
-
-  AbrirTelaComprovante(objComprovante?: OperacaoComprovante, copiando?: boolean) {
+  AbrirTelaComprovante(
+    objComprovante?: OperacaoComprovante,
+    copiando?: boolean
+  ) {
     let id_comprovante: number | undefined;
     let acao = 'novo';
     if (objComprovante) {
@@ -159,7 +160,10 @@ export class ComprovanteComponent implements OnInit {
       }
     }
 
-    this.router.navigate(['home/comprovante/tela-comprovante', { id_comprovante, acao }]);
+    this.router.navigate([
+      'home/comprovante/tela-comprovante',
+      { id_comprovante, acao },
+    ]);
   }
 
   AbrirTelaDetalhe(objComprovante?: OperacaoComprovante, copiando?: boolean) {
@@ -174,6 +178,9 @@ export class ComprovanteComponent implements OnInit {
       }
     }
 
-    this.router.navigate(['home/comprovante/detalhe-comprovante', { id_comprovante, acao }]);
+    this.router.navigate([
+      'home/comprovante/detalhe-comprovante',
+      { id_comprovante, acao },
+    ]);
   }
 }

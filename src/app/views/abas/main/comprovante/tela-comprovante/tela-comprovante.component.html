@@ -36,7 +36,7 @@
           </ion-text> -->
           </ion-label>
           <input class="native-input sc-ion-input-md" type="email" [(ngModel)]="email" name="email" id="email"
-            formControlName="email" mask="email" />
+            formControlName="email" />
 
         </ion-item>
         <ion-item>
@@ -162,7 +162,7 @@
           </ion-label>
           <input class="native-input sc-ion-input-md" formControlName="municipio" [(ngModel)]="municipio" type="text"
             id="municipio">
-          <ion-progress-bar *ngIf="consultandoEndereco || consultandoMunicipios" type="indeterminate">
+          <ion-progress-bar *ngIf="consultandoEndereco" type="indeterminate">
           </ion-progress-bar>
         </ion-item>
 
@@ -170,7 +170,7 @@
           <ion-label color="primary" position="stacked">
             Bairro
             <ion-text color="danger">*</ion-text>
-            <ion-text class="pulse" color="danger" *ngIf="submitted && !bairroSelecionado">
+            <ion-text class="pulse" color="danger" *ngIf="submitted && !bairro">
               <b>Campo obrigatório</b>
             </ion-text>
           </ion-label>
@@ -187,7 +187,7 @@
       <ion-label color="primary" position="stacked">
         Observações
       </ion-label>
-      <input class="native-input sc-ion-input-md" type="text" maxlength="100" />
+      <input placeholder="" class="native-input sc-ion-input-md" type="text" maxlength="100" [(ngModel)]="observacao" />
     </ion-item>
   </div>
 
@@ -270,7 +270,7 @@
   </div>
 </ion-content>
 <ion-footer class="border-0">
-  <button (click)="SalvarComprovante()" class="btn btn-primary btn-lg btn-block fix-btn text-left" type="button">
+  <button (click)="mostrarOpcoesComprovante(objComprovante)" class="btn btn-primary btn-lg btn-block fix-btn text-left" type="button">
     <span class="float-left">
       <ion-icon name="albums-outline"></ion-icon>
       Salvar <span>Comprovante</span>

@@ -1,12 +1,10 @@
 import { OperacaoComprovante, OperacaoComprovanteJson } from './operacao-comprovante.model';
-import { DadosEmpresa } from './service/auth.service';
 import { Util } from './util.model';
 
 export class OperacaoComprovanteUtil {
   static PreecherDadosJson(comprovante: OperacaoComprovante) {
     comprovante.dados_json = JSON.parse(comprovante.json);
     comprovante.dados_json.data = comprovante.data;
-    comprovante.dados_json.quantidade_produtos_lancados = 0;
     comprovante.dados_json.sincronizado_em = comprovante.sincronizado_em;
     comprovante.dados_json.id_nuvem = comprovante.id_nuvem;
   }
@@ -21,7 +19,7 @@ export class OperacaoComprovanteUtil {
   }
 
   static LimparValores(comprovante: OperacaoComprovanteJson) {
-    comprovante.quantidade_produtos_lancados = 0;
+    /* comprovante.quantidade_produtos_lancados = 0; */
   }
 
   static RecalcularTotais(comprovante: OperacaoComprovanteJson) {
@@ -41,14 +39,14 @@ export class OperacaoComprovanteUtil {
     //   return false;
     // }
 
-    const estaTudoValido = true;
+    // const estaTudoValido = true;
 
-    if (!estaTudoValido) {
-      Util.AlertWarning(
-        `Um ou mais produtos contém erro de validação, por favor confira na aba 'produtos' e faça os devidos ajustes`
-      );
-      return false;
-    }
+    // if (!estaTudoValido) {
+    //   Util.AlertWarning(
+    //     `Um ou mais produtos contém erro de validação, por favor confira na aba 'produtos' e faça os devidos ajustes`
+    //   );
+    //   return false;
+    // }
 
     return true;
   }

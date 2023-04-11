@@ -9,7 +9,9 @@ import { OperacaoComprovanteJson } from '../../operacao-comprovante.model';
 export class CabecalhoComprovanteComponent {
   @Input() objComprovante: OperacaoComprovanteJson;
 
-  constructor() {}
+  constructor() {
+    this.objComprovante.comprovante.nome = 'testandonodme'
+  }
 
   GetClasse() {
     return this.objComprovante.id_nuvem

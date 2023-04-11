@@ -1,3 +1,5 @@
+import { Comprovante } from "../views/abas/main/comprovante/comprovante.model";
+
 export class OperacaoComprovante {
   id: number;
   data: number;
@@ -17,11 +19,11 @@ export class OperacaoComprovanteJson {
   data: number;
   id_nuvem?: number;
   id_erp_estoque_locais?: number;
-  quantidade_produtos_lancados: number;
   //1: sincronizando - 2: excluindo
   status_manipulacao?: number;
   sincronizado_em?: string;
   observacao: string;
+  comprovante: Comprovante
   constructor() {
     /* OperacaoComprovanteUtil.LimparBalanco(this); */
   }

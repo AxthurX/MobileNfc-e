@@ -1,13 +1,12 @@
 <div class="card mb-2 {{ GetClasse() }}">
   <div class="p-1">
-  <!--   <div *ngIf="objComprovante.estoque_locais" class="d-flex justify-content-between mb-2">
+  <div *ngIf="objComprovante.comprovante.nome" class="d-flex justify-content-between mb-2">
       <div class="text-secondary">
-        <span style="font-size: 12px">Local estoque</span> <br />
-        <b>{{ objComprovante.estoque_locais.id_erp }} -
-          {{ objComprovante.estoque_locais.descricao }}</b>
+        <span style="font-size: 12px">Nome </span> <br />
+        <b>{{ objComprovante.comprovante.nome }} -
+          {{ objComprovante.comprovante.nome }}</b>
       </div>
     </div>
- -->
 
     <div class="d-flex justify-content-between mb-2">
       <div class="d-flex justify-content-between mb-2">
@@ -28,23 +27,19 @@
         <span style="font-size: 12px">Sincronizado em</span> <br />
         <b>{{ objComprovante.sincronizado_em }}</b>
       </div>
-      <div class="text-secondary" >
-        <span style="font-size: 12px">Cód. nuvem</span> <br />
-        <b>{{ objComprovante.id_nuvem }}</b>
-      </div>
     </div>
 
 
-<!--     <div  class="d-flex justify-content-between mb-2">
+     <div  class="d-flex justify-content-between mb-2">
       <div class="text-secondary">
-        <span style="font-size: 12px">Qtde de produtos</span> <br />
-        <b *ngIf="objComprovante.produtos" color="primary">{{ objComprovante.produtos.length }}</b>
+        <span style="font-size: 12px">Cep</span> <br />
+        <b *ngIf="objComprovante.comprovante.cep" color="primary">{{ objComprovante.comprovante.cep }}</b>
       </div>
- -->
+
 
       <div class="text-secondary">
-        <span style="font-size: 12px">Saldo novo</span> <br />
-        <b color="primary">{{ objComprovante.quantidade_produtos_lancados | number : "1.0-3" }}</b>
+        <span style="font-size: 12px">email</span> <br />
+        <b color="primary">{{ objComprovante.comprovante.email | number : "1.0-3" }}</b>
       </div>
     </div>
 
