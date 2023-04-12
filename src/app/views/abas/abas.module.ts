@@ -23,11 +23,6 @@ import { SharedModule } from '../../core/shared.module';
               import('./inicio/inicio.module').then((m) => m.InicioModule),
           },
           {
-            path: 'fotos',
-            loadChildren: () =>
-              import('./modais/fotos/fotos.module').then((m) => m.FotosModule),
-          },
-          {
             path: 'modais',
             loadChildren: () =>
               import('./modais/modais.module').then((m) => m.ModaisModule),

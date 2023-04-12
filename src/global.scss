@@ -25,18 +25,6 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-
-
-
-
-
-
-
-
-
-
-
-
 p {
   font-size: 13px;
   line-height: 22px;
@@ -274,6 +262,7 @@ ion-searchbar {
   --secondary: #6c757d;
   --success: #28a745;
   --info: #17a2b8;
+  --center: #0e51ce;
   --warning: #ffc107;
   --danger: #dc3545;
   --light: #f8f9fa;
@@ -11469,6 +11458,15 @@ button.bg-dark:focus {
 a.text-primary:hover,
 a.text-primary:focus {
   color: #0056b3 !important;
+}
+
+.text-clima {
+  color: #0e51ce !important;
+}
+
+a.text-clima:hover,
+a.text-clima:focus {
+  color: #0e51ce !important;
 }
 
 .text-secondary {

@@ -16,7 +16,7 @@ import { CabecalhoComprovanteComponent } from './components/cabecalho-comprovant
     IonicModule,
     FormsModule,
     BtnVoltarComponent,
-    CabecalhoComprovanteComponent
+    CabecalhoComprovanteComponent,
   ],
   providers: [NavParams],
 })

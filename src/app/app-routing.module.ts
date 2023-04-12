@@ -19,12 +19,6 @@ const routes: Routes = [
       import('./views/abas/inicio/inicio.module').then((m) => m.InicioModule),
   },
   {
-    path: 'fotos',
-    loadChildren: () =>
-      import('./views/abas/modais/fotos/fotos.module').then((m) => m.FotosModule
-      ),
-  },
-  {
     path: 'comprovante',
     loadChildren: () =>
       import('./views/abas/main/comprovante/comprovante.module').then((m) => m.ComprovanteModule)

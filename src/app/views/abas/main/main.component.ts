@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-main',
@@ -8,7 +7,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  constructor(private modal: ModalController, private rota: Router) {}
+  constructor(private rota: Router) {}
 
   ngOnInit() {}
 

@@ -17,10 +17,10 @@
 
   <ion-segment mode="ios" [value]="abaSelecionada" (ionChange)="segmentChanged($event)">
     <ion-segment-button value="pendentes">
-      <ion-label>Conprovante Pendente ({{ pendentes.length }})</ion-label>
+      <ion-label>Conprovante</ion-label>
     </ion-segment-button>
     <ion-segment-button value="sincronizados">
-      <ion-label>Sincronizados ({{ sincronizados.length }})</ion-label>
+      <ion-label>Sincronizados</ion-label>
     </ion-segment-button>
   </ion-segment>
   <br />
@@ -35,15 +35,6 @@
       </ion-button>
       <ion-progress-bar *ngIf="sincronizando === true" type="indeterminate">
       </ion-progress-bar>
-      <app-cabecalho-comprovante *ngFor="let objComprovante of pendentes; let i = index"
-        (click)="mostrarOpcoesComprovante(objComprovante, i)" [objComprovante]="objComprovante.dados_json">
-      </app-cabecalho-comprovante>
-    </ng-container>
-
-    <ng-container *ngIf="abaSelecionada === 'sincronizados'">
-      <app-cabecalho-comprovante *ngFor="let objComprovante of sincronizados; let i = index"
-        (click)="mostrarOpcoesComprovante(objComprovante, i)" [objComprovante]="objComprovante.dados_json">
-      </app-cabecalho-comprovante>
     </ng-container>
   </ng-template>
 
@@ -52,12 +43,6 @@
   <br />
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="AbrirTelaComprovante()">
-      <ion-icon name="add-circle"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
-  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
-    <ion-fab-button (click)="AbrirTelaDetalhe()">
       <ion-icon name="add-circle"></ion-icon>
     </ion-fab-button>
   </ion-fab>

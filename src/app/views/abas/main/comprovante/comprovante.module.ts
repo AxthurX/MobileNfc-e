@@ -8,9 +8,12 @@ import { TelaComprovanteComponent } from './tela-comprovante/tela-comprovante.co
 import { DetalheComprovanteComponent } from './detalhe-comprovante/detalhe-comprovante.component';
 import { PDFGenerator } from '@awesome-cordova-plugins/pdf-generator/ngx';
 
-
 @NgModule({
-  declarations: [ComprovanteComponent, TelaComprovanteComponent, DetalheComprovanteComponent],
+  declarations: [
+    ComprovanteComponent,
+    TelaComprovanteComponent,
+    DetalheComprovanteComponent,
+  ],
   imports: [
     CommonModule,
     SharedModule,
@@ -22,12 +25,12 @@ import { PDFGenerator } from '@awesome-cordova-plugins/pdf-generator/ngx';
       },
       {
         path: 'tela-comprovante',
-        component: TelaComprovanteComponent
+        component: TelaComprovanteComponent,
       },
       {
         path: 'detalhe-comprovante',
-        component: DetalheComprovanteComponent
-      }
+        component: DetalheComprovanteComponent,
+      },
     ]),
   ],
   providers: [PDFGenerator],

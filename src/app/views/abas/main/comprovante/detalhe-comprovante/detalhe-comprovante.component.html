@@ -8,12 +8,18 @@
 </ion-header>
 <ion-content class="ion-padding order-list-page" color="dark">
   <div #imprimir id="imprimir">
-
     <div class="container-lg">
       <div class="p-1 d-flex mb-3">
-        <img src="../../../../../assets/images/center-clima.png" class="circulo rounded-circle" align="left" />
+        <img src="../../../../../assets/images/center-clima.png"
+          class="circulo rounded-circle"
+          align="left"
+        />
         <div class="mr-4 ion-margin-start center">
-          <b><h5 class="ion-text-start fw-bold text-black h5 p-0">Center Clima Climatização</h5></b>
+          <b>
+            <h5 class="ion-text-start fw-bold text-black h5 p-0">
+              Center Clima Climatização
+            </h5>
+          </b>
           <table class="table mb-0">
             <tbody>
               <tr>
@@ -41,62 +47,80 @@
               </tr>
             </tbody>
           </table>
-
         </div>
       </div>
       <div class="mb-3">
-        <h6>Levando Satisfação aos nossos clientes atrasvés das melhores soluções de climatização</h6>
+        <h6>
+          Levando Satisfação aos nossos clientes atrasvés das melhores soluções
+          de climatização
+        </h6>
         <h6>
           <ion-icon name="logo-instagram"></ion-icon>
-          @center_clima_osmarfilho</h6>
+          @center_clima_osmarfilho
+        </h6>
       </div>
 
       <div>
-        <h3 class="text-light alert alert-dark m-auto text-dark font-700 p-0">Ordem de Serviço</h3>
+        <h3 class="alert alert-dark m-auto text-dark font-700 p-0">
+          Ordem de Serviço
+        </h3>
         <table class="table p-sm-1">
           <tbody class="">
             <tr>
-              <td class="border-0 py-1 pt-3">Dados do cliente</td>
-              <td class="border-0 py-1 pt-3">Dados do cliente</td>
+              <td class="border-0 py-1 pt-3">
+                <b>Cliente :</b> {{ comprovante.nome }}
+              </td>
+              <td class="border-0 py-1 pt-3">{{ comprovante.email }}</td>
             </tr>
             <tr>
-              <td class="border-0 py-1">Dados do cliente</td>
-              <td class="border-0 py-1">Dados do cliente</td>
+              <td class="border-0 py-1"><b>CPF/CNPJ</b> {{ comprovante.cpf_cnpj }}</td>
+              <td class="border-0 py-1">{{ comprovante.telefone ?? '' | mask: "(00) 00000-0000"}}</td>
             </tr>
             <tr>
-              <td class="border-0 py-1" colspan="2">Dados do cliente</td>
+              <td class="border-0 py-1" colspan="2">
+                {{ comprovante.logradouro }}, {{ comprovante.bairro }},
+                {{ comprovante.numero }}
+              </td>
             </tr>
             <tr>
-              <td class="border-0 py-1" colspan="2">Dados do cliente</td>
+              <td class="border-0 py-1" colspan="2">
+                {{ comprovante.municipio }} - {{ comprovante.uf }}
+              </td>
             </tr>
             <tr>
-              <td class="border-0 py-1" colspan="2">Dados do cliente</td>
-            </tr>
-            <tr>
-              <td class="border-0 py-1" colspan="2">Dados do cliente</td>
+              <td class="border-0 py-1" colspan="2">
+                CEP: {{ comprovante.cep }}
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
       <div>
-        <h3 class="alert alert-dark m-auto text-dark font-700 p-0">Infromaçoes Basicas</h3>
-        <p class="py-1 mb-0 h6">Observações</p>
-        <p>Os valores das instalações são de acorde com a quantidade de aparelhos, capacidade termica de cada um e
-          difuldade na execução do serviço durente a obra e quantidade de material ultizado</p>
+        <h3 class="alert alert-dark m-auto text-dark font-700 p-0">
+          Infromaçoes Basicas
+        </h3>
+        <p class="py-1 mb-0 h6 pt-1">Observações</p>
+        <p>
+          {{ comprovante.observacao_info }}
+        </p>
       </div>
       <div>
-        <h3 class="alert alert-dark m-auto text-dark font-700 alert m-auto">Serviços</h3>
+        <h3 class="alert alert-dark m-auto text-dark font-700 alert m-auto">
+          Serviços
+        </h3>
         <div class="container-fluid mt-5 d-flex w-100">
-          <div class="table-responsive w-100 row d-flex justify-content-between align-content-start">
+          <div class="table-responsive w-100 row d-flex justify-content-between align-content-start" >
             <table class="table table-bordered w-100">
               <tbody>
                 <tr class="text-end mb-3">
-                  <td colspan="3" class="border-0 mb-3 text-start">Preço</td>
+                  <td colspan="3" class="border-0 mb-3 text-start">Descrição</td>
                   <td class="border-0 mb-3 text-end align-self-end">Preço</td>
                 </tr>
                 <tr class="text-end">
-                  <td class="border-0" colspan="3">Desconto sobre serviços (7%)</td>
-                  <td class="border-0">$30</td>
+                  <td class="border-0" colspan="3">
+                    {{ comprovante.descricao_servico }}
+                  </td>
+                  <td class="border-0">R$ {{ comprovante.preco_servico }}</td>
                 </tr>
               </tbody>
             </table>
@@ -106,7 +130,7 @@
       <div>
         <h3 class="alert alert-dark m-auto text-dark font-700 p-0">Peças</h3>
         <div class="container-fluid mt-5 d-flex w-100">
-          <div class="table-responsive w-100 row d-flex justify-content-between align-content-start">
+          <div class="table-responsive w-100 row d-flex justify-content-between align-content-start" >
             <div>
               <p>Descrição</p>
               <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
@@ -121,26 +145,30 @@
                 </tr>
                 <tr class="text-end">
                   <td class="border-0" colspan="3">Serviços</td>
-                  <td class="border-0">$272</td>
+                  <td class="border-0">${{ comprovante.preco_servico }}</td>
                 </tr>
                 <tr class="text-end">
                   <td class="border-0" colspan="3">Peças</td>
                   <td class="border-0">$1500</td>
                 </tr>
                 <tr class="text-end">
-                  <td class="border-0" colspan="3">Subtotal</td>
+                  <b><td class="border-0" colspan="3">Subtotal</td></b>
                   <td class="border-0">$30</td>
                 </tr>
                 <tr class="text-end">
-                  <td class="border-0" colspan="3">Desconto sobre serviços (7%)</td>
+                  <td class="border-0" colspan="3">
+                    Desconto sobre serviços (7%)
+                  </td>
                   <td class="border-0">$30</td>
                 </tr>
                 <tr class="text-end">
-                  <td class="border-0" colspan="3">Desconto sobre peças (7%)</td>
+                  <td class="border-0" colspan="3">
+                    Desconto sobre peças (7%)
+                  </td>
                   <td class="border-0">$30</td>
                 </tr>
                 <tr class="text-end">
-                  <td class="border-0 alert alert-dark" colspan="3">Total</td>
+                  <b><td class="border-0 alert alert-dark" colspan="3">Total</td></b>
                   <td class="border-0">$30</td>
                 </tr>
               </tbody>
@@ -150,7 +178,9 @@
       </div>
 
       <div>
-        <h3 class="alert alert-dark m-auto text-dark font-700 p-0">Pagamento</h3>
+        <h3 class="alert alert-dark m-auto text-dark font-700 p-0">
+          Pagamento
+        </h3>
         <div class="container-fluid mt-5 d-flex justify-content-center w-100">
           <div class="table-responsive w-100">
             <table class="table table-bordered w-50 mb-0">
@@ -162,8 +192,10 @@
               </thead>
               <tbody>
                 <tr class="text-end">
-                  <td colspan="1" class="text-start border-0 py-1">Boleto, transfência bancária, cartão de crédito,
-                    cartão de débito ou pix</td>
+                  <td colspan="1" class="text-start border-0 py-1">
+                    Boleto, transfência bancária, cartão de crédito, cartão de
+                    débito ou pix
+                  </td>
                   <td class="border-0 py-1">21.123.213/0001-21</td>
                 </tr>
               </tbody>
@@ -199,26 +231,29 @@
       </div>
       <div class="mb-5">
         <h3 class="alert alert-dark m-auto text-dark font-700 p-0">Garantia</h3>
-        <h6 class="my-2">Periodo de garandia</h6>
+        <b><h6 class="my-2">Periodo de garandia</h6></b>
+        <p>{{ comprovante.periodo_garantia }}</p>
       </div>
 
-      <b>
-        <hr size="100" width="100%" align="center" color="black"></b>
+      <b> <hr size="100" width="100%" align="center" color="black" /></b>
       <div>
-        <h5 class="m-auto text-dark font-700">Codiçoes de garantia</h5>
-        <p>A garantia é em supostos vazamentos de gas refrigerante nas uniões feitas pelas porcas de conexões, nas
-          soldas ou defeito na instalação dos aparelhos de ar-condicionado</p>
+        <b><h5 class="m-auto text-dark font-700">Codiçoes de garantia</h5></b>
+        <p>
+          {{ comprovante.condicoes_garantia }}
+        </p>
       </div>
-      <br><br><br>
+      <br /><br /><br />
       <div>
         <i>
-          <p class="text-center">Agredeçemos pela confiança me nossos serviços!</p>
+          <p class="text-center">
+            Agredeçemos pela confiança me nossos serviços!
+          </p>
         </i>
-        <h6 class="text-center">Date now</h6>
+        <h6 class="text-center">Porto velho, {{ date_now | date :'short' }}</h6>
       </div>
       <div class="mt-5 d-flex ion-justify-content-evenly row">
         <div class="flex-column col-5">
-          <hr size="100" width="100%" color="black" class="mb-0">
+          <hr size="100" width="100%" color="black" class="mb-0" />
           <b>
             <p class="mb-0 pb-0 text-center">Center Clima Climatização</p>
           </b>
@@ -226,7 +261,7 @@
           <p class="mb-0 pb-0 text-center">Center Clima Climatização</p>
         </div>
         <div class="flex-column col-5">
-          <hr size="100" width="100%" color="black" class="mb-0">
+          <hr size="100" width="100%" color="black" class="mb-0" />
           <p class="mb-0 pb-0 text-center">Onde vamos hoje ?</p>
         </div>
       </div>
@@ -248,4 +283,3 @@
     </span>
   </button>
 </ion-footer>
-

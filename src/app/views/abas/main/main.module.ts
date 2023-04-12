@@ -15,11 +15,6 @@ import { MainComponent } from './main.component';
         component: MainComponent,
         children: [
           {
-            path: 'fotos',
-            loadChildren: () =>
-              import('../modais/fotos/fotos.module').then((m) => m.FotosModule),
-          },
-          {
             path: 'comprovante',
             loadChildren: () =>
               import('../main/comprovante/comprovante.module').then(

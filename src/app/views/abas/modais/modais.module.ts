@@ -12,21 +12,6 @@ import { ModaisComponent } from './modais.component';
         path: '',
         component: ModaisComponent,
       },
-      {
-        path: 'fotos',
-        loadChildren: () =>
-          import('./fotos/fotos.module').then((m) => m.FotosModule),
-      },
-/*       {
-        path: 'videos',
-        loadChildren: () =>
-          import('./videos/videos.module').then((m) => m.VideosModule),
-      },
-      {
-        path: 'maps',
-        loadChildren: () =>
-          import('./maps/maps.module').then((m) => m.MapsModule),
-      }, */
     ]),
   ],
 })

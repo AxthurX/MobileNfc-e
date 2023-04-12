@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators'
+import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Observable, Subject, fromEvent, merge, of } from 'rxjs';
 
@@ -11,10 +11,7 @@ export class AuthService {
   public salvouComprovante$ = new Subject();
   public saiuDoApp$ = new Subject();
   public appIsOnline$: Observable<boolean>;
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-  ) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   initConnectivityMonitoring() {
     if (!window || !navigator || !('onLine' in navigator)) {
@@ -29,10 +26,9 @@ export class AuthService {
   }
 
   informarSalvouComprovante() {
-    this.salvouComprovante$.next('')
+    this.salvouComprovante$.next('');
   }
 }
-
 
 export class LoginResponse {
   token: string;

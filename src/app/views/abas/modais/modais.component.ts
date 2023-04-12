@@ -12,8 +12,6 @@ export class ModaisComponent implements OnInit {
 
   ngOnInit() {}
 
-
-
   async showTelaModal() {
     const modal = await this.modal.create({
       component: ModaisComponent,
@@ -25,18 +23,6 @@ export class ModaisComponent implements OnInit {
 
     return await modal.present();
   }
-/*
-  async showTelaOutroMapa() {
-    const modal = await this.modal.create({
-      component: OutroMapaComponent,
-    });
-
-    modal.onDidDismiss().then((dataReturned) => {
-      if (dataReturned !== null) {}
-    });
-
-    return await modal.present();
-  } */
 
   goTo(rota: any) {
     this.rota.navigateByUrl(rota);
