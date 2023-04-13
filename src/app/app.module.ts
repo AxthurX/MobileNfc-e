@@ -9,7 +9,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { NgxMaskModule } from 'ngx-mask';
+import localePtBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 
+registerLocaleData(localePtBr);
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -32,7 +35,10 @@ import { NgxMaskModule } from 'ngx-mask';
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy,
     },
-    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR'
+    },
   ],
   bootstrap: [AppComponent],
   exports: [HttpClientModule],
@@ -44,5 +50,5 @@ export class AppModule {
       statusBar.styleDefault();
       splashScreen.hide(); // <-- aqui
     });
-    }
+  }
 }

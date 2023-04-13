@@ -275,11 +275,11 @@ ion-searchbar {
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --ion-color-primary: #03A9F4;
-    --ion-color-primary-rgb: 105, 187, 123;
-    --ion-color-primary-contrast: #ededed;
-    --ion-color-primary-contrast-rgb: 255, 255, 255;
-    --ion-color-primary-shade: #1ab2f8;
-    --ion-color-primary-tint: #2394c9;
+  --ion-color-primary-rgb: 105, 187, 123;
+  --ion-color-primary-contrast: #ededed;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #1ab2f8;
+  --ion-color-primary-tint: #2394c9;
 }
 
 
@@ -3476,6 +3476,42 @@ fieldset:disabled a.btn {
 .btn-dark:not(:disabled):not(.disabled).active:focus,
 .show>.btn-dark.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+}
+
+.btn-outline-clima {
+  color: #0e51ce;
+  border-color: #0e51ce;
+}
+
+.btn-outline-clima:hover {
+  color: #fff;
+  background-color: #0e51ce;
+  border-color: #0e51ce;
+}
+
+.btn-outline-clima:focus,
+.btn-outline-clima.focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.btn-outline-clima.disabled,
+.btn-outline-clima:disabled {
+  color: #0e51ce;
+  background-color: transparent;
+}
+
+.btn-outline-clima:not(:disabled):not(.disabled):active,
+.btn-outline-clima:not(:disabled):not(.disabled).active,
+.show>.btn-outline-clima.dropdown-toggle {
+  color: #fff;
+  background-color: #0e51ce;
+  border-color: #0e51ce;
+}
+
+.btn-outline-clima:not(:disabled):not(.disabled):active:focus,
+.btn-outline-clima:not(:disabled):not(.disabled).active:focus,
+.show>.btn-outline-clima.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
 
 .btn-outline-primary {
@@ -11842,7 +11878,7 @@ body.dark {
   z-index: 9999999999 !important;
 }
 
-.sem-margem{
+.sem-margem {
   margin: 0px !important;
 }
 
@@ -11855,8 +11891,7 @@ body.dark {
   --ion-color-tint: var(--ion-color-primary-tint);
 }
 
-.float-right
-{
+.float-right {
   float: right;
 }
 
@@ -11872,57 +11907,56 @@ body.dark {
 @-webkit-keyframes pulse {
   0% {
     -webkit-box-shadow: 0 0 0 0 rgba(232,
-      98,
-      37, 0.4);
+        98,
+        37, 0.4);
   }
-70% {
-  -webkit-box-shadow: 0 0 0 10px rgba(232,
-    98,
-    37, 0);
-}
 
-100% {
-  -webkit-box-shadow: 0 0 0 0 rgba(232,
-    98,
-    37, 0);
-}
+  70% {
+    -webkit-box-shadow: 0 0 0 10px rgba(232,
+        98,
+        37, 0);
+  }
+
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(232,
+        98,
+        37, 0);
+  }
 }
 
 @keyframes pulse {
   0% {
     -moz-box-shadow: 0 0 0 0 rgba(232,
-      98,
-      37, 0.4);
+        98,
+        37, 0.4);
     box-shadow: 0 0 0 0 rgba(232,
-      98,
-      37, 0.4);
+        98,
+        37, 0.4);
   }
 
   70% {
     -moz-box-shadow: 0 0 0 10px rgba(232,
-      98,
-      37, 0);
+        98,
+        37, 0);
     box-shadow: 0 0 0 10px rgba(232,
-      98,
-      37, 0);
+        98,
+        37, 0);
   }
 
   100% {
     -moz-box-shadow: 0 0 0 0 rgba(232,
-      98,
-      37, 0);
+        98,
+        37, 0);
     box-shadow: 0 0 0 0 rgba(232, 98, 37, 0);
   }
 }
 
-.negrito
-{
+.negrito {
   font-weight: bold;
 }
 
 
-.rotulo-direita
-{
+.rotulo-direita {
   position: absolute;
   vertical-align: middle;
   margin: 0 0px 130px 90px;

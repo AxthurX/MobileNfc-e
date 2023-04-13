@@ -10,7 +10,7 @@ import { Observable, Subject, fromEvent, merge, of } from 'rxjs';
 export class AuthService {
   public salvouComprovante$ = new Subject();
   public saiuDoApp$ = new Subject();
-  public appIsOnline$: Observable<boolean>;
+  public appIsOnline$: Observable < boolean > ;
   constructor(private http: HttpClient, private router: Router) {}
 
   initConnectivityMonitoring() {
@@ -18,8 +18,7 @@ export class AuthService {
       return;
     }
 
-    this.appIsOnline$ = merge(
-      of(null),
+    this.appIsOnline$ = merge( of (null),
       fromEvent(window, 'online'),
       fromEvent(window, 'offline')
     ).pipe(map(() => navigator.onLine));
@@ -27,6 +26,11 @@ export class AuthService {
 
   informarSalvouComprovante() {
     this.salvouComprovante$.next('');
+  }
+
+  logout() {
+    this.router.navigateByUrl('/login');
+    this.saiuDoApp$.next();
   }
 }
 
@@ -65,9 +69,9 @@ export class DadosEmpresa {
   nosso_id: string;
   desconto_porcentagem_maximo_permitido_empresa: number;
   desconto_porcentagem_maximo_permitido_usuario: number;
-  multa_contas_a_receber_em_atraso?: number;
-  juros_mensal_contas_a_receber_em_atraso?: number;
-  dias_tolerancia_cobrar_juros?: number;
+  multa_contas_a_receber_em_atraso ? : number;
+  juros_mensal_contas_a_receber_em_atraso ? : number;
+  dias_tolerancia_cobrar_juros ? : number;
   logradouro: string;
   numero: string;
   municipio: string;

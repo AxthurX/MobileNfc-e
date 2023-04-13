@@ -10,11 +10,21 @@
 
 <ion-content class="ion-padding order-list-page ion-padding order-list-page shop-cart-page" color="light">
   <h2 class="text-dark text-center alert m-auto">Ordem de serviço</h2>
+
   <div class="card">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item class="py-1">
         <ion-label position="stacked" class="mb-1 text-clima">
-          Nome
+          <b> Ordem de serviço:</b>
+          <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <input class="native-input sc-ion-input-md p-1 mb-3 rounded-4" [(ngModel)]="comprovante.ordem_de_servico"
+          type="text" required maxlength="60" />
+      </ion-item>
+
+      <ion-item class="py-1">
+        <ion-label position="stacked" class="mb-1 text-clima">
+          <b> Nome </b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
         <input class="native-input sc-ion-input-md p-1 mb-3 rounded-4" [(ngModel)]="comprovante.nome" name="nome"
@@ -23,7 +33,7 @@
 
       <ion-item class="py-1">
         <ion-label position="stacked" class="mb-1 text-clima">
-          Email
+          <b> Email </b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
         <input class="native-input sc-ion-input-md p-1 mb-3" type="email" [(ngModel)]="comprovante.email" name="email"
@@ -31,7 +41,7 @@
       </ion-item>
       <ion-item class="py-1">
         <ion-label position="stacked" class="mb-1 text-clima">
-          CPF/CNPJ
+          <b> CPF/CNPJ </b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
         <input class="native-input sc-ion-input-md p-1 mb-3" type="text" id="cpf_cnpj" mask="CPF_CNPJ"
@@ -43,8 +53,8 @@
           <ion-label position="stacked" class="mb-1 text-clima">
             Inscrição Estadual
           </ion-label>
-          <input class="native-input sc-ion-input-md p-1 mb-3" type="text" name="inscricao_estadual" id="inscricao_estadual"
-            maxlength="20" />
+          <input class="native-input sc-ion-input-md p-1 mb-3" type="text" name="inscricao_estadual"
+            id="inscricao_estadual" maxlength="20" />
         </ion-item>
         <ion-list>
           <ion-radio-group name="indicador_ie" id="indicador_ie">
@@ -66,16 +76,17 @@
 
       <ion-item class="py-1">
         <ion-label position="stacked" class="mb-1 text-clima">
-          Telefone
+          <b> Telefone </b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
-        <input class="native-input sc-ion-input-md p-1 mb-3" type="text" prefix="+55 " mask="(00) 0000-0000||(00) 0 0000-0000"
-          id="telefone" [(ngModel)]="comprovante.telefone" [ngModelOptions]="{standalone: false}" maxlength="20" />
+        <input class="native-input sc-ion-input-md p-1 mb-3" type="text" prefix="+55 "
+          mask="(00) 0000-0000||(00) 0 0000-0000" id="telefone" [(ngModel)]="comprovante.telefone"
+          [ngModelOptions]="{standalone: false}" maxlength="20" />
       </ion-item>
 
       <ion-item class="py-1">
         <ion-label position="stacked" class="mb-1 text-clima">
-          CEP
+          <b> CEP </b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
         <input class="native-input sc-ion-input-md p-1 mb-3" type="text" [(ngModel)]="comprovante.cep"
@@ -85,17 +96,17 @@
 
       <ion-item class="py-1">
         <ion-label position="stacked" class="mb-1 text-clima">
-          Logradouro
+          <b> Logradouro </b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
-        <input class="native-input sc-ion-input-md p-1 mb-3" [(ngModel)]="comprovante.logradouro" type="text" name="logradouro"
-          id="logradouro" maxlength="40" />
+        <input class="native-input sc-ion-input-md p-1 mb-3" [(ngModel)]="comprovante.logradouro" type="text"
+          name="logradouro" id="logradouro" maxlength="40" />
         <ion-progress-bar *ngIf="consultandoEndereco" type="indeterminate"></ion-progress-bar>
       </ion-item>
 
       <ion-item class="py-1">
         <ion-label position="stacked" class="mb-1 text-clima">
-          Número
+          <b> Número </b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
         <input class="native-input sc-ion-input-md p-1 mb-3" type="text" name="numero" id="numero" maxlength="10"
@@ -104,16 +115,16 @@
 
       <ion-item class="py-1">
         <ion-label position="stacked" class="mb-1 text-clima">
-          Complemento
+          <b> Complemento </b>
         </ion-label>
-        <input class="native-input sc-ion-input-md p-1 mb-3" [(ngModel)]="comprovante.complemento" type="text" name="complemento"
-          id="complemento" maxlength="100" />
+        <input class="native-input sc-ion-input-md p-1 mb-3" [(ngModel)]="comprovante.complemento" type="text"
+          name="complemento" id="complemento" maxlength="100" />
         <ion-progress-bar *ngIf="consultandoEndereco" type="indeterminate"></ion-progress-bar>
       </ion-item>
 
       <ion-item class="py-1">
         <ion-label position="stacked" class="mb-1 text-clima">
-          UF
+          <b> UF </b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
         <input class="native-input sc-ion-input-md p-1 mb-3" [(ngModel)]="comprovante.uf" type="text" id="uf" name="uf">
@@ -122,17 +133,18 @@
 
       <ion-item class="py-1">
         <ion-label position="stacked" class="mb-1 text-clima">
-          Município
+          <b> Município </b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
-        <input class="native-input sc-ion-input-md p-1 mb-3" [(ngModel)]="comprovante.municipio" type="text" id="municipio">
+        <input class="native-input sc-ion-input-md p-1 mb-3" [(ngModel)]="comprovante.municipio" type="text"
+          id="municipio">
         <ion-progress-bar *ngIf="consultandoEndereco" type="indeterminate">
         </ion-progress-bar>
       </ion-item>
 
       <ion-item class="py-1">
         <ion-label position="stacked" class="mb-1 text-clima">
-          Bairro
+          <b> Bairro </b>
           <ion-text color="danger">*</ion-text>
           <ion-text class="pulse" color="danger" *ngIf="submitted && !comprovante.bairro">
             <b>Campo obrigatório</b>
@@ -148,9 +160,10 @@
     <h2 class="text-dark text-center alert m-auto">Informações basicas</h2>
     <ion-item>
       <ion-label position="stacked" class="mb-1 text-clima">
-        Observações
+        <b> Observações </b>
       </ion-label>
-      <input placeholder="" class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="100" [(ngModel)]="comprovante.observacao_info" />
+      <input placeholder="Observações" class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="100"
+        [(ngModel)]="comprovante.observacao_info" />
     </ion-item>
   </div>
 
@@ -161,9 +174,10 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked" class="mb-1 text-clima">
-              Descrição
+              <b> Descrição </b>
             </ion-label>
-            <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="100" [(ngModel)]="comprovante.descricao_servico" />
+            <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="100"
+              [(ngModel)]="comprovante.descricao_servico" />
           </ion-item>
         </ion-col>
 
@@ -172,12 +186,9 @@
             <ion-label position="stacked" class="mb-1 text-clima">
               Preço
             </ion-label>
-            <input class="native-input sc-ion-input-md p-1 mb-3" mask="separator.2"
-            [thousandSeparator]="'.'"
-            [decimalMarker]="','"
-            prefix="R$ "
-            type="text"
-            [dropSpecialCharacters]="true" maxlength="15" [(ngModel)]="comprovante.preco_servico" />
+            <input class="native-input sc-ion-input-md p-1 mb-3" mask="separator.2" [thousandSeparator]="'.'"
+              [decimalMarker]="','" prefix="R$ " type="text" [dropSpecialCharacters]="true" maxlength="15"
+              [(ngModel)]="comprovante.preco_servico" />
           </ion-item>
         </ion-col>
       </ion-row>
@@ -186,34 +197,67 @@
 
   <div class="container">
     <h2 class="text-dark text-center alert m-auto">Peças</h2>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label position="stacked">
-              Descrição
-              <ion-text color="danger">*</ion-text>
-            </ion-label>
-            <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="60" />
-          </ion-item>
-        </ion-col>
-
-        <ion-col>
-          <ion-item>
-            <ion-label position="stacked">
-              Observação
-              <ion-text color="danger">*</ion-text>
-            </ion-label>
-            <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="60" />
-            <ion-label position="stacked">
-              Observação
-              <ion-text color="danger">*</ion-text>
-            </ion-label>
-            <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="60" />
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ng-container *ngFor="let item of pecas; let i = index">
+      <div class="card">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked" class="mb-1 text-clima">
+                  Descrição
+                  <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="60" />
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid>
+          <ion-row class="justify-content-center">
+            <ion-col size="5">
+              <ion-label position="stacked" class="mb-1 text-clima text-center">
+                Unidade
+              </ion-label>
+              <input class="native-input sc-ion-input-md p-1 mb-3 w-px" type="text" maxlength="60" />
+            </ion-col>
+            <ion-col size="5">
+              <ion-label position="stacked" class="mb-1 text-clima text-center">
+                Preço Unitario
+              </ion-label>
+              <input class="native-input sc-ion-input-md p-1 mb-3 w-px" type="text" mask="separator.2"
+                [thousandSeparator]="'.'" [decimalMarker]="','" prefix="R$ " type="text" [dropSpecialCharacters]="true"
+                maxlength="15" />
+            </ion-col>
+          </ion-row>
+          <ion-row class="justify-content-center">
+            <ion-col size="5">
+              <ion-label position="stacked" class="mb-1 text-clima text-center">
+                Qtd.
+              </ion-label>
+              <input class="native-input sc-ion-input-md p-1 mb-3 w-px" type="text" maxlength="60" />
+            </ion-col>
+            <ion-col size="5">
+              <ion-label position="stacked" class="mb-1 text-clima text-center">
+                Preço
+              </ion-label>
+              <input class="native-input sc-ion-input-md p-1 mb-3 w-px" type="text" mask="separator.2"
+                [thousandSeparator]="'.'" [decimalMarker]="','" prefix="R$ " type="text" [dropSpecialCharacters]="true"
+                maxlength="15" />
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div class="d-grid gap-2 align-self-center mt-3 text-center">
+          <button (click)="removerNovaPeca(i)" type="button" class="btn btn-outline-danger btn-sm text-center mb-4">
+            Remover prescrição
+          </button>
+        </div>
+      </div>
+    </ng-container>
+    <div class="d-grid gap-2 align-self-center mt-3 text-center">
+      <button (click)="addNovaPeca()" type="button" class="btn btn-outline-clima center">
+        Adicionar uma nova peça
+      </button>
+    </div>
   </div>
 
   <div>
@@ -223,7 +267,8 @@
         Periodo de garantia
         <ion-text color="danger">*</ion-text>
       </ion-label>
-      <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="60" [(ngModel)]="comprovante.periodo_garantia" />
+      <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="60"
+        [(ngModel)]="comprovante.periodo_garantia" />
     </ion-item>
 
     <h5 class="text-dark text-center alert m-auto">Condições de garantia</h5>
@@ -232,7 +277,8 @@
         Condições de garantia
         <ion-text color="danger">*</ion-text>
       </ion-label>
-      <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="60" [(ngModel)]="comprovante.condicoes_garantia"/>
+      <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="60"
+        [(ngModel)]="comprovante.condicoes_garantia" />
     </ion-item>
   </div>
 </ion-content>

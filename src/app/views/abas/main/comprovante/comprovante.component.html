@@ -14,30 +14,7 @@
       refreshingSpinner="circles" refreshingText="Atualizando...">
     </ion-refresher-content>
   </ion-refresher>
-
-  <ion-segment mode="ios" [value]="abaSelecionada" (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="pendentes">
-      <ion-label>Conprovante</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="sincronizados">
-      <ion-label>Sincronizados</ion-label>
-    </ion-segment-button>
-  </ion-segment>
   <br />
-
-  <ng-template #exibirDados>
-    <ng-container *ngIf="abaSelecionada === 'pendentes'">
-      <ion-progress-bar *ngIf="sincronizando === true" type="indeterminate"></ion-progress-bar>
-      <ion-button [disabled]="sincronizando === true" (click)="sincronizarTudo()" expand="block">
-        <ion-icon *ngIf="sincronizando === false" slot="start" name="sync-outline"></ion-icon>
-        <ion-spinner *ngIf="sincronizando === true" name="bubbles"></ion-spinner>
-        Sincronizar tudo
-      </ion-button>
-      <ion-progress-bar *ngIf="sincronizando === true" type="indeterminate">
-      </ion-progress-bar>
-    </ng-container>
-  </ng-template>
-
   <br />
   <br />
   <br />

@@ -21,6 +21,7 @@ import { formatDate } from '@angular/common';
 export class DetalheComprovanteComponent implements OnInit, OnDestroy {
   @ViewChild('imprimir') imprimir: ElementRef;
   comprovante: Comprovante;
+  comprovantes: Comprovante[] = [];
   gerando: boolean;
   base64: string;
   date_now: string;
@@ -39,10 +40,7 @@ export class DetalheComprovanteComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     try {
-      const agora = new Date();
-      const dataHoraAtual = agora
-        .toISOString().replace(/-/g, '/')
-      console.log(dataHoraAtual);
+      this.date_now = formatDate(new Date(), 'dd/MM/yyyy', 'pt-BR');
 
       const modalState = {
         modal: true,
@@ -61,6 +59,8 @@ export class DetalheComprovanteComponent implements OnInit, OnDestroy {
   }
 
   downloadPdf() {
+    this.comprovantes.push(this.comprovante);
+    console.log(this.comprovantes);
     setTimeout(() => {
       try {
         this.gerando = true;
@@ -75,7 +75,7 @@ export class DetalheComprovanteComponent implements OnInit, OnDestroy {
           .fromData(
             `<html>
             <head>
-              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"
             </head>
             <body>
               ${content}

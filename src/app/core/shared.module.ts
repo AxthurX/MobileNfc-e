@@ -4,11 +4,11 @@ import { IonicModule, NavParams } from '@ionic/angular';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BtnVoltarComponent } from './components/btn-voltar.component';
 import { CabecalhoComprovanteComponent } from './components/cabecalho-comprovante/cabecalho-comprovante.component';
+import { BtnSairComponent } from './components/btn-sair.component';
 
 @NgModule({
-  declarations: [BtnVoltarComponent, CabecalhoComprovanteComponent],
+  declarations: [BtnVoltarComponent, BtnSairComponent,CabecalhoComprovanteComponent],
   imports: [CommonModule, IonicModule, ReactiveFormsModule, FormsModule],
-
   exports: [
     BtnVoltarComponent,
     CommonModule,
@@ -16,6 +16,7 @@ import { CabecalhoComprovanteComponent } from './components/cabecalho-comprovant
     IonicModule,
     FormsModule,
     BtnVoltarComponent,
+    BtnSairComponent,
     CabecalhoComprovanteComponent,
   ],
   providers: [NavParams],

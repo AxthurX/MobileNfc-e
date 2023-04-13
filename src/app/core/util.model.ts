@@ -153,4 +153,38 @@ export class Util {
       },
     ];
   }
+
+  static async AlertaPergunta(
+    message: string,
+    overlayService: OverlayService,
+    confirmou: () => void
+  ): Promise<void> {
+    await overlayService.alert({
+      message,
+      mode: 'ios',
+      buttons: [
+        {
+          text: 'Sim',
+          handler: () => {
+            confirmou();
+          },
+        },
+        'Não',
+      ],
+    });
+  }
+
+  static Confirmar(pergunta: string) {
+    return Swal.fire({
+      heightAuto: false,
+      title: '<strong>Confirma esta ação?</strong>',
+      icon: 'question',
+      html: pergunta,
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: '<ion-icon name="thumbs-up"></ion-icon> Sim',
+      cancelButtonText: '<ion-icon name="thumbs-down"></ion-icon> Não',
+    });
+  }
 }

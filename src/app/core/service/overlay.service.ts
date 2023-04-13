@@ -1,21 +1,16 @@
-/* eslint-disable @typescript-eslint/member-ordering */
 import { Injectable } from '@angular/core';
-import {
-  AlertController,
-  LoadingController,
-  ToastController,
-} from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { AlertOptions, ToastOptions } from '@ionic/core';
-export type PredefinedColors =
-  | 'primary'
-  | 'secondary'
-  | 'tertiary'
-  | 'success'
-  | 'warning'
-  | 'danger'
-  | 'light'
-  | 'medium'
-  | 'dark';
+export type PredefinedColors = |
+  'primary' |
+  'secondary' |
+  'tertiary' |
+  'success' |
+  'warning' |
+  'danger' |
+  'light' |
+  'medium' |
+  'dark';
 
 @Injectable({
   providedIn: 'root',
@@ -35,7 +30,7 @@ export class OverlayService {
     }, 1000);
   }
 
-  async alert(options?: AlertOptions) {
+  async alert(options ? : AlertOptions) {
     const alert = await this.alertCtrl.create(options);
     await alert.present();
   }
@@ -43,7 +38,7 @@ export class OverlayService {
   showLoadingConsultando() {
     this.showLoading('Consultando...');
   }
-  showLoading(message?: string) {
+  showLoading(message ? : string) {
     if (!message) {
       message = 'Carregando...';
     }
@@ -78,22 +73,20 @@ export class OverlayService {
   }
 
   notificarErroPadrao(
-    e: any,
+    e,
     mensagem: string = 'Ops, algo deu errado, tente novamente'
   ) {
     this.showToast(mensagem, 'danger');
   }
 
-  private async toast(options?: ToastOptions) {
+  private async toast(options ? : ToastOptions) {
     const toast = await this.toastCtrl.create({
       position: 'bottom',
       duration: 3000,
-      buttons: [
-        {
-          text: 'Ok',
-          role: 'cancel',
-        },
-      ],
+      buttons: [{
+        text: 'Ok',
+        role: 'cancel',
+      }, ],
       ...options,
     });
     await toast.present();

@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { ComprovanteModule } from './views/abas/main/comprovante/comprovante.module';
 
-const routes: Routes = [
-  {
+const routes: Routes = [{
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
@@ -26,7 +24,9 @@ const routes: Routes = [
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules
+    }),
   ],
   exports: [RouterModule],
 })

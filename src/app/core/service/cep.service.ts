@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
 export class CepService {
   constructor(private http: HttpClient) {}
 
-  consultaCEP(cep: string): Observable<RetornoEndereco> {
+  consultaCEP(cep: string): Observable < RetornoEndereco > {
     cep = cep.replace('-', '');
-    return this.http.get<RetornoEndereco>(
+    return this.http.get < RetornoEndereco > (
       `https://viacep.com.br/ws/${cep}/json`
     );
   }

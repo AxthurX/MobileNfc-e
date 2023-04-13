@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
 import { Util } from '../util.model';
@@ -13,7 +11,7 @@ import { Util } from '../util.model';
 export class BtnVoltarComponent {
   @Input() fechar_modal: boolean;
   @Input() solicitar_confirmacao: boolean;
-  @Output() OnVoltou: EventEmitter<any> = new EventEmitter();
+  @Output() OnVoltou: EventEmitter < any > = new EventEmitter();
   constructor(
     private navController: NavController,
     private modal: ModalController

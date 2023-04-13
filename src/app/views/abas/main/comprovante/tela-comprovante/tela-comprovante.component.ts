@@ -9,7 +9,7 @@ import {
   ModalController,
 } from '@ionic/angular';
 import { AuthService } from 'src/app/core/service/auth.service';
-import { Comprovante } from '../comprovante.model';
+import { Comprovante, Pecas } from '../comprovante.model';
 import { DetalheComprovanteComponent } from '../detalhe-comprovante/detalhe-comprovante.component';
 
 @Component({
@@ -20,9 +20,9 @@ import { DetalheComprovanteComponent } from '../detalhe-comprovante/detalhe-comp
 export class TelaComprovanteComponent implements OnInit {
   private backbuttonSubscription: Subscription;
   @ViewChild('btnVoltar') btnVoltar: any;
-  @Input() copiando?: boolean;
   comprovante = new Comprovante();
-  aba_selecionada: string;
+  comprovantes: Comprovante[] = [];
+  pecas: Pecas[] = [];
   carregando: boolean;
   submitted: boolean;
   consultandoEndereco: boolean;
@@ -60,10 +60,43 @@ export class TelaComprovanteComponent implements OnInit {
   setFocusDocumento() {
     try {
       setTimeout(() => {
-        document.getElementById('cpf_cnpj')?.focus();
+        document.getElementById('nome')?.focus();
       }, 500);
     } catch (e) {
       console.error('setFocusDocumento', e);
+    }
+  }
+
+  async removerNovaPeca(i: number) {
+    try {
+      if (!this.pecas) {
+        this.pecas = [];
+      }
+
+      await Util.Confirmar(`Deseja excluir essa prescrição`).then((res) => {
+        if (res.isConfirmed) {
+          this.pecas.splice(i, 1);
+        }
+      });
+    } catch (e) {
+      Util.TratarErro(e);
+    }
+  }
+
+  addNovaPeca() {
+    try {
+      if (!this.pecas) {
+        this.pecas = [];
+      }
+
+      this.pecas.push({
+        descricao: '',
+        preco: '',
+        preco_unit: '',
+        unidade: '',
+      });
+    } catch (e) {
+      Util.TratarErro(e);
     }
   }
 
@@ -99,10 +132,6 @@ export class TelaComprovanteComponent implements OnInit {
       Util.TratarErro(e);
       this.consultandoEndereco = false;
     }
-  }
-
-  goTo(rota: any) {
-    this.rota.navigate([rota]);
   }
 
   async mostrarOpcoesComprovante(comprovante: Comprovante) {
@@ -153,7 +182,7 @@ export class TelaComprovanteComponent implements OnInit {
     });
 
     const actionSheet = await this.actionSheetController.create({
-      header: 'Opções do balanço',
+      header: 'Opções do comprovante',
       mode: 'ios',
       buttons,
     });

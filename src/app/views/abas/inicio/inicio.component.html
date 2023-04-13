@@ -7,21 +7,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding order-list-page" color="light">
+  <ion-item>
+    <ion-label (click)="temaEscuro = !temaEscuro">Tema Escuro</ion-label>
+    <ion-toggle slot="start" color="secondary" [(ngModel)]="temaEscuro" (ionChange)="alterarTema()"></ion-toggle>
+  </ion-item>
   <div class="main_content_div">
     <div class="content_div">
       <div class="grid_box">
-        <div class="box_div" color="camera-outline" (click)="showTelaDeFotos()">
-          <ion-icon name="camera-outline"></ion-icon>
-          <ion-label>Fotos</ion-label>
+        <div class="box_div" color="medium" (click)="goTo('comprovante')">
+          <ion-icon name="receipt-outline"></ion-icon>
+          <ion-label>Comprovante</ion-label>
         </div>
       </div>
       <div class="grid_box">
-        <div class="box_div" color="medium" (click)="goTo('comprovante')">
-          <ion-icon name="hourglass-outline"></ion-icon>
-          <ion-label>Comprovante</ion-label>
+        <div class="box_div" (click)="emBreve()">
+          <ion-badge class="rotulo-direita">Em breve</ion-badge>
+          <ion-icon name="document-text-outline"></ion-icon>
+          <ion-label>Nota fiscal</ion-label>
         </div>
       </div>
     </div>
   </div>
 </ion-content>
+<ion-footer class="text-center">
+  <ion-label>Versão: {{ versao }}</ion-label>
+</ion-footer>

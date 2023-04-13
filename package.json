@@ -23,6 +23,7 @@
     "@awesome-cordova-plugins/core": "^5.44.0",
     "@awesome-cordova-plugins/pdf-generator": "^5.46.0",
     "@capacitor/core": "3.6.0",
+    "@ionic-native/app-version": "^5.36.0",
     "@ionic-native/core": "^5.36.0",
     "@ionic-native/file": "^5.36.0",
     "@ionic-native/http": "^5.36.0",
@@ -84,6 +85,7 @@
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^6.2.0",
     "cordova-pdf-generator": "^2.1.1",
+    "cordova-plugin-app-version": "^0.1.14",
     "cordova-plugin-device": "^2.1.0",
     "cordova-plugin-file": "^7.0.0",
     "cordova-plugin-file-transfer": "github:apache/cordova-plugin-file-transfer",
@@ -115,7 +117,8 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-file-transfer": {},
-      "cordova-pdf-generator": {}
+      "cordova-pdf-generator": {},
+      "cordova-plugin-app-version": {}
     },
     "platforms": [
       "browser",
