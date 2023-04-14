@@ -7,7 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Util } from 'src/app/core/util.model';
-import { ModalController, NavParams } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { PDFGenerator } from '@awesome-cordova-plugins/pdf-generator/ngx';
 import { OverlayService } from 'src/app/core/service/overlay.service';
 import { Comprovante } from '../comprovante.model';
@@ -23,8 +23,12 @@ export class DetalheComprovanteComponent implements OnInit, OnDestroy {
   comprovante: Comprovante;
   comprovantes: Comprovante[] = [];
   gerando: boolean;
+  count: number = 10;
   base64: string;
   date_now: string;
+  soma: number;
+  desconto_servico;
+  desconto_pecas;
   constructor(
     private modal: ModalController,
     private pdf: PDFGenerator,
@@ -40,8 +44,18 @@ export class DetalheComprovanteComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     try {
+      this.soma = this.comprovante.pecas.reduce(
+        (acc, item) => acc + item.preco,
+        0
+      );
+      this.desconto_servico =
+        this.comprovante.preco_servico - this.comprovante.preco_servico * 0.07;
+      this.desconto_pecas = this.soma - this.soma * 0.07;
+      console.log(this.comprovante.pecas);
       this.date_now = formatDate(new Date(), 'dd/MM/yyyy', 'pt-BR');
-
+      setInterval(() => {
+        this.count++;
+      }, 1000);
       const modalState = {
         modal: true,
         desc: 'fake state for our modal',
@@ -60,7 +74,6 @@ export class DetalheComprovanteComponent implements OnInit, OnDestroy {
 
   downloadPdf() {
     this.comprovantes.push(this.comprovante);
-    console.log(this.comprovantes);
     setTimeout(() => {
       try {
         this.gerando = true;
@@ -84,7 +97,6 @@ export class DetalheComprovanteComponent implements OnInit, OnDestroy {
             options
           )
           .then((base64: any) => {
-            console.log(base64);
             this.limparDadosGerando();
             this.overlay.dismissLoadCtrl();
             this.gerando = false;

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CepService, RetornoEndereco } from 'src/app/core/service/cep.service';
 import { Util } from 'src/app/core/util.model';
 import { Router } from '@angular/router';
@@ -23,6 +23,7 @@ export class TelaComprovanteComponent implements OnInit {
   comprovante = new Comprovante();
   comprovantes: Comprovante[] = [];
   pecas: Pecas[] = [];
+  pecass: any;
   carregando: boolean;
   submitted: boolean;
   consultandoEndereco: boolean;
@@ -69,13 +70,13 @@ export class TelaComprovanteComponent implements OnInit {
 
   async removerNovaPeca(i: number) {
     try {
-      if (!this.pecas) {
-        this.pecas = [];
+      if (!this.comprovante.pecas) {
+        this.comprovante.pecas = [];
       }
 
       await Util.Confirmar(`Deseja excluir essa prescrição`).then((res) => {
         if (res.isConfirmed) {
-          this.pecas.splice(i, 1);
+          this.comprovante.pecas.splice(i, 1);
         }
       });
     } catch (e) {
@@ -85,16 +86,20 @@ export class TelaComprovanteComponent implements OnInit {
 
   addNovaPeca() {
     try {
-      if (!this.pecas) {
-        this.pecas = [];
+      if (!this.comprovante.pecas) {
+        this.comprovante.pecas = [];
       }
 
-      this.pecas.push({
+      const a = this.comprovante.pecas.push({
         descricao: '',
-        preco: '',
-        preco_unit: '',
-        unidade: '',
+        unidade: 0,
+        preco_unitario: 0,
+        quantidade: 0,
+        preco: 0,
       });
+
+      console.log(a);
+      console.log(this.comprovante.pecas);
     } catch (e) {
       Util.TratarErro(e);
     }

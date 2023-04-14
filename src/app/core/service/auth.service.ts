@@ -29,7 +29,7 @@ export class AuthService {
   }
 
   logout() {
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/inicio');
     this.saiuDoApp$.next();
   }
 }
