@@ -197,7 +197,7 @@
 
   <div class="container">
     <h2 class="text-dark text-center alert m-auto">Peças</h2>
-    <ng-container *ngFor="let item of pecas; let i = index">
+    <ng-container *ngFor="let item of comprovante.pecas; let i = index">
       <div class="card">
         <ion-grid>
           <ion-row>
@@ -218,7 +218,8 @@
               <ion-label position="stacked" class="mb-1 text-clima text-center">
                 Unidade
               </ion-label>
-              <input class="native-input sc-ion-input-md p-1 mb-3 w-px" type="text" maxlength="60" />
+              <input class="native-input sc-ion-input-md p-1 mb-3 w-px" type="text" maxlength="60"
+                [(ngModel)]="item.unidade" />
             </ion-col>
             <ion-col size="5">
               <ion-label position="stacked" class="mb-1 text-clima text-center">
@@ -226,7 +227,7 @@
               </ion-label>
               <input class="native-input sc-ion-input-md p-1 mb-3 w-px" type="text" mask="separator.2"
                 [thousandSeparator]="'.'" [decimalMarker]="','" prefix="R$ " type="text" [dropSpecialCharacters]="true"
-                maxlength="15" />
+                maxlength="15" [(ngModel)]="item.preco_unitario" />
             </ion-col>
           </ion-row>
           <ion-row class="justify-content-center">
@@ -234,7 +235,8 @@
               <ion-label position="stacked" class="mb-1 text-clima text-center">
                 Qtd.
               </ion-label>
-              <input class="native-input sc-ion-input-md p-1 mb-3 w-px" type="text" maxlength="60" />
+              <input class="native-input sc-ion-input-md p-1 mb-3 w-px" type="text" maxlength="60"
+                [(ngModel)]="item.quantidade" />
             </ion-col>
             <ion-col size="5">
               <ion-label position="stacked" class="mb-1 text-clima text-center">
@@ -242,7 +244,7 @@
               </ion-label>
               <input class="native-input sc-ion-input-md p-1 mb-3 w-px" type="text" mask="separator.2"
                 [thousandSeparator]="'.'" [decimalMarker]="','" prefix="R$ " type="text" [dropSpecialCharacters]="true"
-                maxlength="15" />
+                maxlength="15" [(ngModel)]="item.preco" />
             </ion-col>
           </ion-row>
         </ion-grid>

@@ -13,15 +13,16 @@ export class Comprovante {
   bairro: string;
   observacao_info: string;
   descricao_servico: string;
-  preco_servico: string;
-  pecas: Pecas;
+  preco_servico: number;
+  pecas: Pecas[] = [];
   periodo_garantia: string;
   condicoes_garantia: string;
 }
 
 export class Pecas {
   descricao: string;
-  unidade: string;
-  preco_unit: string;
-  preco: string;
+  unidade: number;
+  preco_unitario: number;
+  quantidade: number;
+  preco: number;
 }
