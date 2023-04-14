@@ -62,7 +62,7 @@
       <div>
         <div class="alert alert-dark m-auto">
           <h3 class="text-dark font-700 p-0">
-            Ordem de Serviço {{ count }}
+            Ordem de Serviço {{ count }}-{{ ano }}
           </h3>
           <p class="mb-0">{{ comprovante.ordem_de_servico }}</p>
         </div>
@@ -132,7 +132,7 @@
       <div>
         <h3 class="alert alert-dark m-auto text-dark font-700 p-0">Peças</h3>
         <div class="container-fluid mt-1 d-flex w-100 pr-0 flex-column">
-          <div class="table-responsive row d-flex" *ngFor="let item of comprovante.pecas">
+          <div class="table-responsive row d-flex flex-column" *ngFor="let item of comprovante.pecas">
             <div class="w-25">
               <p>Descrição</p>
               <p>{{item.descricao }}</p>
@@ -157,8 +157,8 @@
           </div>
           </div>
           <br>
-          <div class="d-flex flex-row justify-content-end">
-            <table class="table w-50 text-start pr-0 float-right" align="right">
+          <div class="d-flex flex-row justify-content-end pt-0 mt-0">
+            <table class="table w-50 text-start pr-0 pt-0 mt-0 float-right" align="right">
               <tr>
                 <td class="border-0" colspan="3">Serviços</td>
                 <td class="border-0">R${{ comprovante.preco_servico | number:'1.2-2' }}</td>

@@ -29,21 +29,24 @@ export class DetalheComprovanteComponent implements OnInit, OnDestroy {
   soma: number;
   desconto_servico;
   desconto_pecas;
+  ano;
   constructor(
     private modal: ModalController,
     private pdf: PDFGenerator,
     private overlay: OverlayService
-  ) {
-    this.gerando = false;
-  }
+    ) {
+      this.gerando = false;
+    }
 
-  @HostListener('window:popstate', ['$event'])
-  dismissModal() {
-    this.modal.dismiss();
-  }
+    @HostListener('window:popstate', ['$event'])
+    dismissModal() {
+      this.modal.dismiss();
+    }
 
-  ngOnInit() {
-    try {
+    ngOnInit() {
+      try {
+      const data = new Date()
+      this.ano = data.getFullYear()
       this.soma = this.comprovante.pecas.reduce(
         (acc, item) => acc + item.preco,
         0
