@@ -22,24 +22,18 @@
           <table class="table mb-0">
             <tbody>
               <tr>
-                <td class="border-0 py-0 pl-0">Osmar Leite</td>
-                <td class="border-0 py-0 pl-0">
+                <td class="border-0 py-1 pl-0">OSMAR LEITE</td>
+                <td class="border-0 py-1 pl-0">
                   <ion-icon name="mail"></ion-icon>
                   centerclimapvh@gmail.com
                 </td>
               </tr>
               <tr>
-                <td class="border-0 py-0 pl-0">CNPJ: 12.345.100/0001</td>
-                <td class="border-0 py-0 pl-0">
+                <td class="border-0 py-1 pl-0">CNPJ: 12.345.100/0001</td>
+                <td class="border-0 py-1 pl-0">
                   <ion-icon name="call"></ion-icon>
                   69 99336-4013 / 99305-7346
                 </td>
-              </tr>
-              <tr>
-                <td class="border-0 py-0 pl-0">CEP: 76807874</td>
-              </tr>
-              <tr>
-                <td class="border-0 py-0 pl-0">Rua center clima</td>
               </tr>
               <tr>
                 <td class="border-0 py-0 pl-0">Porto velho-RO</td>
@@ -69,7 +63,7 @@
         <table class="table p-sm-1">
           <tbody>
             <tr>
-              <td class="border-0 py-1 pt-1 pl-0">
+              <td class="border-0 py-1 px-0 pl-0">
                 <b>Cliente: </b> {{ comprovante.nome }}
               </td>
               <td class="border-0 py-1 pt-1 pl-0">{{ comprovante.email }}</td>
@@ -131,65 +125,49 @@
       </div>
       <div>
         <h3 class="alert alert-dark m-auto text-dark font-700 p-0">Peças</h3>
-        <div class="container-fluid mt-1 d-flex w-100 pr-0 flex-column">
-          <div class="table-responsive row d-flex flex-column" *ngFor="let item of comprovante.pecas">
-            <div class="w-25">
-              <p>Descrição</p>
-              <p>{{item.descricao }}</p>
+        <div class="container-fluid d-flex mt-1 pr-0 flex-column">
+          <div class="table-responsive row d-flex justify-content-between" *ngFor="let item of comprovante.pecas">
+            <div class="d-flex flex-row justify-content-end mb-0 pb-0">
+              <table class="table">
+                <tr>
+                  <td colspan="2" class="border-0 mb-2 text-start pl-0 pt-0">Descrição</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="border-0 mb-2 pt-0 pl-0 text-start">{{ item.descricao }}</td>
+                </tr>
+              </table>
+              <table align="right">
+                <tr class="text-end mb-1">
+                  <td scope="col" class="border-0 px-4">Unidade</td>
+                  <td scope="col" class="border-0 text-nowrap">Preço Unitario</td>
+                  <td scope="col" class="border-0 px-4">Qtd.</td>
+                  <td scope="col" class="border-0">Preço</td>
+                </tr>
+                <tr class="text-center mb-0">
+                  <td class="border-0">{{ item.unidade }}</td>
+                  <td class="border-0 text-nowrap px-4">{{ item.preco_unitario | number:'1.2-2' }}</td>
+                  <td class="border-0 px-4">{{ item.quantidade }}</td>
+                  <td class="border-0 px-0">{{ item.preco | number:'1.2-2' }}</td>
+                </tr>
+              </table>
             </div>
-            <div class="d-flex flex-row justify-content-end">
-              <table class="table w-50 text-start pr-0 float-right" align="right">
-                <tbody class="w-50">
-                <tr class="text-end mb-3">
-                  <td class="border-0 mb-3">Unidade</td>
-                  <td class="border-0 mb-3">Preço Unitario</td>
-                  <td class="border-0 mb-3">Qtd.</td>
-                  <td class="border-0 mb-3">Preço</td>
-                </tr>
-                <tr class="text-end mb-3">
-                  <td class="border-0 mb-3">{{ item.unidade }}</td>
-                  <td class="border-0 mb-3">{{ item.preco_unitario | number:'1.2-2' }}</td>
-                  <td class="border-0 mb-3">{{ item.quantidade }}</td>
-                  <td class="border-0 mb-3">{{ item.preco | number:'1.2-2' }}</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
-          </div>
-          <br>
-          <div class="d-flex flex-row justify-content-end pt-0 mt-0">
-            <table class="table w-50 text-start pr-0 pt-0 mt-0 float-right" align="right">
-              <tr>
-                <td class="border-0" colspan="3">Serviços</td>
-                <td class="border-0">R${{ comprovante.preco_servico | number:'1.2-2' }}</td>
+          <div class="container-fluid d-flex flex-row justify-content-end"
+            style="margin-left: 2.6rem; padding-left: 2.6rem;">
+            <table class="w-50 text-start" align="right">
+              <tr class="text-end">
+                <td class="border-0 float-start text-start mb-2" colspan="6">Serviços</td>
+                <td class="border-0 float-end text-end mb-2">R${{ comprovante.preco_servico | number:'1.2-2' }}</td>
               </tr>
-              <tr>
-                <td class="border-0" colspan="3">Peças</td>
-                <td class="border-0">R${{ soma | number:'1.2-2' }}</td>
+              <tr class="text-end">
+                <td class="border-0 float-start text-start mb-2" colspan="6">Peças</td>
+                <td class="border-0 float-end text-end mb-2">R${{ soma | number:'1.2-2' }}</td>
               </tr>
-              <tr>
+              <tr class="text-end mb-1">
                 <b>
-                  <td class="border-0" colspan="3">Subtotal</td>
+                  <td class="border-0 float-start text-start alert alert-dark" colspan="6"><b> Total </b></td>
                 </b>
-                <td class="border-0">R${{ soma + comprovante.preco_servico | number:'1.2-2' }}</td>
-              </tr>
-              <tr>
-                <td class="border-0" colspan="3">
-                  Desconto sobre serviços (7%)
-                </td>
-                <td class="border-0">R${{ desconto_servico | number:'1.2-2' }}</td>
-              </tr>
-              <tr>
-                <td class="border-0" colspan="3">
-                  Desconto sobre peças (7%)
-                </td>
-                <td class="border-0">R${{ desconto_pecas | number:'1.2-2' }}</td>
-              </tr>
-              <tr>
-                <b>
-                  <td class="border-0 alert alert-dark" colspan="3">Total</td>
-                </b>
-                <td class="border-0">R${{ desconto_servico + desconto_pecas | number:'1.2-2' }}</td>
+                <td class="border-0 float-end text-end">R${{ soma + comprovante.preco_servico | number:'1.2-2' }}</td>
               </tr>
             </table>
           </div>
@@ -200,24 +178,20 @@
         <h3 class="alert alert-dark m-auto text-dark font-700 p-0">
           Pagamento
         </h3>
-        <div class="container-fluid pl-0 mt-1 d-flex justify-content-center w-100">
-          <div class="table-responsive w-100">
-            <table class="table w-75 mb-0">
-              <thead>
-                <tr colspan="4" class="pl-0">
-                  <th class="border-0 pb-0 pl-0">Meios de pagamento</th>
-                  <th class="text-start border-0 pb-0 pl-0">Pix</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr colspan="4" class="text-start">
-                  <td class="text-start border-0 py-1 pl-0">
-                    Transferência bancária, cartão de crédito, cartão de
-                    débito ou pix
-                  </td>
-                  <td class="text-start border-0 py-1 pl-0">centerclimapvh@gmail.com</td>
-                </tr>
-              </tbody>
+        <div class="container mt-1 d-flex w-100">
+          <div class="table-responsive row d-flex align-content-start">
+            <table class="table w-100 px-1">
+              <tr>
+                <td class="border-0 mb-3 text-start pl-0 pt-0">Meios de pagamento</td>
+                <td class="border-0 mb-3 text-start pt-0">Pix</td>
+              </tr>
+              <tr>
+                <td class="border-0 pt-0 pl-0 align-self-start text-start">
+                  Transferência bancária, cartão de crédito, cartão de
+                  débito ou pix
+                </td>
+                <td class="border-0 pt-0 pl-0 align-self-start text-start">centerclimapvh@gmail.com</td>
+              </tr>
             </table>
           </div>
         </div>

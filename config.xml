@@ -104,4 +104,6 @@
     <allow-navigation href="http://172.31.160.1:8100" sessionid="d4c8561d" />
     <allow-navigation href="http://0.0.0.0:8100" sessionid="58528e45" />
     <allow-navigation href="http://172.18.240.1:8101" sessionid="81407635" />
+    <allow-navigation href="http://172.28.48.1:8100" sessionid="c1f5ccd8" />
+    <allow-navigation href="http://192.168.40.81:8102" sessionid="7e0d5d64" />
 </widget>

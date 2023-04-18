@@ -23,7 +23,6 @@ export class TelaComprovanteComponent implements OnInit {
   comprovante = new Comprovante();
   comprovantes: Comprovante[] = [];
   pecas: Pecas[] = [];
-  pecass: any;
   carregando: boolean;
   submitted: boolean;
   consultandoEndereco: boolean;
@@ -74,7 +73,7 @@ export class TelaComprovanteComponent implements OnInit {
         this.comprovante.pecas = [];
       }
 
-      await Util.Confirmar(`Deseja excluir essa prescrição`).then((res) => {
+      await Util.Confirmar(`Deseja excluir essa peça`).then((res) => {
         if (res.isConfirmed) {
           this.comprovante.pecas.splice(i, 1);
         }
@@ -90,16 +89,13 @@ export class TelaComprovanteComponent implements OnInit {
         this.comprovante.pecas = [];
       }
 
-      const a = this.comprovante.pecas.push({
+      this.comprovante.pecas.push({
         descricao: '',
         unidade: 0,
         preco_unitario: 0,
         quantidade: 0,
         preco: 0,
       });
-
-      console.log(a);
-      console.log(this.comprovante.pecas);
     } catch (e) {
       Util.TratarErro(e);
     }
@@ -142,25 +138,10 @@ export class TelaComprovanteComponent implements OnInit {
   async mostrarOpcoesComprovante(comprovante: Comprovante) {
     const buttons: ActionSheetButton[] = [];
     buttons.push({
-      text: 'Copiar',
-      icon: 'copy',
-      handler: () => {
-        this.AbrirTelaComprovante();
-      },
-    });
-
-    buttons.push({
-      text: 'Detalhes',
+      text: 'Imprimir',
       icon: 'reader-outline',
       handler: async () => {
-        const modal = await this.modal.create({
-          component: DetalheComprovanteComponent,
-          componentProps: {
-            comprovante,
-          },
-        });
-
-        await modal.present();
+        this.OnSalvar(comprovante);
       },
     });
 
@@ -176,7 +157,9 @@ export class TelaComprovanteComponent implements OnInit {
       text: 'Cancelar',
       icon: 'trash',
       handler: () => {
-        Util.confirm('Excluindo comprovante', async () => {});
+        Util.confirm('Cancelar comprovante', async () => {
+          this.rota.navigate(['home/comprovante']);
+        });
       },
     });
 
@@ -194,25 +177,61 @@ export class TelaComprovanteComponent implements OnInit {
     await actionSheet.present();
   }
 
-  AbrirTelaComprovante(copiando?: boolean) {
-    let acao = 'novo';
-    if (copiando === true) {
-      acao = 'copiando';
-    } else {
-      acao = 'editando';
-    }
-
+  AbrirTelaComprovante() {
     this.rota.navigate(['home/comprovante/tela-comprovante']);
   }
 
-  AbrirTelaDetalhe(copiando?: boolean) {
-    let acao = 'novo';
-    if (copiando === true) {
-      acao = 'copiando';
-    } else {
-      acao = 'editando';
-    }
+  AbrirTelaDetalhe() {
+    this.rota.navigate(['home/comprovante/detalhe-comprovante']);
+  }
 
-    this.rota.navigate(['home/comprovante/detalhe-comprovante', { acao }]);
+  async OnSalvar(comprovante: Comprovante) {
+    try {
+     if (!comprovante.municipio) {
+       Util.AlertInfo('Selecione o município');
+       this.carregando = false;
+       return;
+     }
+
+     if (!comprovante.bairro) {
+       Util.AlertWarning('Selecione o bairro');
+       this.carregando = false;
+       return;
+     }
+
+     if (
+       !comprovante.nome ||
+       !comprovante.cep ||
+       !comprovante.telefone ||
+       !comprovante.observacao_info
+     ) {
+       Util.AlertWarning('Ops, corrija os campos inválidos');
+       this.carregando = false;
+       return;
+     }
+
+     if (!comprovante.periodo_garantia || !comprovante.condicoes_garantia) {
+       Util.AlertWarning('Corrija os campos de garantia e tente novamente!');
+       this.carregando = false;
+       return;
+     }
+
+     if (comprovante.pecas.length < 1) {
+       Util.AlertWarning('Selecione pelos menos uma peça!');
+       this.carregando = false;
+       return;
+     }
+
+      const modal = await this.modal.create({
+        component: DetalheComprovanteComponent,
+        componentProps: {
+          comprovante,
+        },
+      });
+
+      await modal.present();
+    } catch (e) {
+      this.modal.dismiss();
+    }
   }
 }

@@ -81,7 +81,7 @@
         </ion-label>
         <input class="native-input sc-ion-input-md p-1 mb-3" type="text" prefix="+55 "
           mask="(00) 0000-0000||(00) 0 0000-0000" id="telefone" [(ngModel)]="comprovante.telefone"
-          [ngModelOptions]="{standalone: false}" maxlength="20" />
+          [ngModelOptions]="{standalone: false}" maxlength="22" />
       </ion-item>
 
       <ion-item class="py-1">
@@ -109,7 +109,7 @@
           <b> Número </b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
-        <input class="native-input sc-ion-input-md p-1 mb-3" type="text" name="numero" id="numero" maxlength="10"
+        <input class="native-input sc-ion-input-md p-1 mb-3" type="text" name="numero" id="numero" maxlength="8"
           [(ngModel)]="comprovante.numero" />
       </ion-item>
 
@@ -118,7 +118,7 @@
           <b> Complemento </b>
         </ion-label>
         <input class="native-input sc-ion-input-md p-1 mb-3" [(ngModel)]="comprovante.complemento" type="text"
-          name="complemento" id="complemento" maxlength="100" />
+          name="complemento" id="complemento" maxlength="80" />
         <ion-progress-bar *ngIf="consultandoEndereco" type="indeterminate"></ion-progress-bar>
       </ion-item>
 
@@ -162,7 +162,7 @@
       <ion-label position="stacked" class="mb-1 text-clima">
         <b> Observações </b>
       </ion-label>
-      <input placeholder="Observações" class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="100"
+      <input placeholder="Observações" class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="80"
         [(ngModel)]="comprovante.observacao_info" />
     </ion-item>
   </div>
@@ -176,7 +176,7 @@
             <ion-label position="stacked" class="mb-1 text-clima">
               <b> Descrição </b>
             </ion-label>
-            <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="100"
+            <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="80"
               [(ngModel)]="comprovante.descricao_servico" />
           </ion-item>
         </ion-col>
@@ -198,17 +198,15 @@
   <div class="container">
     <h2 class="text-dark text-center alert m-auto">Peças</h2>
     <ng-container *ngFor="let item of comprovante.pecas; let i = index">
-      <div class="card mb-2">
+      <div class="card mb-2 ">
         <ion-grid>
-          <ion-row>
+          <ion-row class="table-caption">
             <ion-col>
-              <ion-item>
-                <ion-label position="stacked" class="mb-1 text-clima">
-                  Descrição
-                  <ion-text color="danger">*</ion-text>
-                </ion-label>
-                <input class="native-input sc-ion-input-md p-1 mb-3" type="text" maxlength="60" />
-              </ion-item>
+              <ion-label position="stacked" class="mb-1 text-center">
+                Descrição
+                <ion-text color="danger">*</ion-text>
+                <input class="native-input p-1 mb-3" [(ngModel)]="item.descricao" type="text" maxlength="60" />
+              </ion-label>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -230,6 +228,7 @@
                 maxlength="15" [(ngModel)]="item.preco_unitario" />
             </ion-col>
           </ion-row>
+
           <ion-row class="justify-content-center">
             <ion-col size="5">
               <ion-label position="stacked" class="mb-1 text-clima text-center">
@@ -250,7 +249,7 @@
         </ion-grid>
         <div class="d-grid gap-2 align-self-center mt-3 text-center">
           <button (click)="removerNovaPeca(i)" type="button" class="btn btn-outline-danger btn-sm text-center mb-4">
-            Remover prescrição
+            Remover Peça
           </button>
         </div>
       </div>
@@ -283,6 +282,7 @@
         [(ngModel)]="comprovante.condicoes_garantia" />
     </ion-item>
   </div>
+  <br><br><br><br><br>
 </ion-content>
 <ion-footer class="border-0">
   <button (click)="mostrarOpcoesComprovante(comprovante)" class="btn btn-primary btn-lg btn-block fix-btn text-left"
