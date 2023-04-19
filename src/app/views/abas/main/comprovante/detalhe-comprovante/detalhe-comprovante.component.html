@@ -58,33 +58,35 @@
           <h3 class="text-dark font-700 p-0">
             Ordem de Serviço {{ count }}-{{ ano }}
           </h3>
-          <p class="mb-0">{{ comprovante.ordem_de_servico }}</p>
+          <p class="mb-0 py-0">{{ comprovante.ordem_de_servico }}</p>
         </div>
-        <table class="table p-sm-1">
+        <table class="table ">
           <tbody>
             <tr>
-              <td class="border-0 py-1 px-0 pl-0">
+              <td class="border-0 py-1 px-0 px-0">
                 <b>Cliente: </b> {{ comprovante.nome }}
               </td>
-              <td class="border-0 py-1 pt-1 pl-0">{{ comprovante.email }}</td>
+              <td class="border-0 py-1 pt-1 px-0"><b>EMAIL :</b>
+                {{ comprovante.email | mask: "000.000.000-00||00.000.000/0000-00" }}</td>
             </tr>
             <tr>
-              <td class="border-0 py-1 pl-0"><b>CPF/CNPJ: </b> {{ comprovante.cpf_cnpj }}</td>
-              <td class="border-0 py-1 pl-0">{{ comprovante.telefone ?? '' | mask: "(00) 00000-0000"}}</td>
-            </tr>
-            <tr>
-              <td class="border-0 py-1 pl-0" colspan="2">
-                CEP: {{ comprovante.cep }}
+              <td class="border-0 py-1 px-0"><b>CPF/CNPJ: </b> {{ comprovante.cpf_cnpj }}</td>
+              <td class="border-0 py-1 px-0"><b>TELEFONE :</b> {{ comprovante.telefone ?? '' | mask: "(00) 00000-0000"}}
               </td>
             </tr>
             <tr>
-              <td class="border-0 py-1 pl-0" colspan="2">
+              <td class="border-0 py-1 px-0" colspan="2">
+                <b>CEP: </b> {{ comprovante.cep }}
+              </td>
+            </tr>
+            <tr>
+              <td class="border-0 py-1 px-0" colspan="2">
                 {{ comprovante.logradouro }}, {{ comprovante.bairro }},
                 {{ comprovante.numero }}
               </td>
             </tr>
             <tr>
-              <td class="border-0 py-1 pl-0" colspan="2">
+              <td class="border-0 py-1 px-0" colspan="2">
                 {{ comprovante.municipio }} - {{ comprovante.uf }}
               </td>
             </tr>
@@ -109,14 +111,14 @@
             <table class="table w-100">
               <tbody>
                 <tr class="text-end mb-3">
-                  <td colspan="3" class="border-0 mb-3 text-start pl-0 pt-0">Descrição</td>
-                  <td class="border-0 mb-3 text-end align-self-end pt-0">Preço</td>
+                  <td colspan="3" class="border-0 mb-3 text-start px-0 pt-0">Descrição</td>
+                  <td class="border-0 mb-3 text-end align-self-end px-0 pt-0">Preço</td>
                 </tr>
                 <tr class="text-end">
-                  <td class="border-0 pt-0 pl-0 align-self-start text-start" colspan="3">
+                  <td class="border-0 pt-0 px-0 align-self-start text-start" colspan="3">
                     <b> {{ comprovante.descricao_servico }} </b>
                   </td>
-                  <td class="border-0 pt-0 pl-0">R$ {{ comprovante.preco_servico | number:'1.2-2' }}</td>
+                  <td class="border-0 pt-0 px-0">R$ {{ comprovante.preco_servico }}</td>
                 </tr>
               </tbody>
             </table>
@@ -125,10 +127,10 @@
       </div>
       <div>
         <h3 class="alert alert-dark m-auto text-dark font-700 p-0">Peças</h3>
-        <div class="container-fluid d-flex mt-1 pr-0 flex-column">
+        <div class="container-fluid d-flex mt-1 pr-0 w-100 flex-column">
           <div class="table-responsive row d-flex justify-content-between" *ngFor="let item of comprovante.pecas">
-            <div class="d-flex flex-row justify-content-end mb-0 pb-0">
-              <table class="table">
+            <div class="d-flex flex-row w-100 justify-content-end mb-0 pb-0 align-content-start">
+              <table class="table w-100">
                 <tr>
                   <td colspan="2" class="border-0 mb-2 text-start pl-0 pt-0">Descrição</td>
                 </tr>
@@ -145,29 +147,29 @@
                 </tr>
                 <tr class="text-center mb-0">
                   <td class="border-0">{{ item.unidade }}</td>
-                  <td class="border-0 text-nowrap px-4">{{ item.preco_unitario | number:'1.2-2' }}</td>
+                  <td class="border-0 text-nowrap px-4">{{ item.preco_unitario }}</td>
                   <td class="border-0 px-4">{{ item.quantidade }}</td>
-                  <td class="border-0 px-0">{{ item.preco | number:'1.2-2' }}</td>
+                  <td class="border-0 px-0">{{ item.preco }}</td>
                 </tr>
               </table>
             </div>
           </div>
-          <div class="container-fluid d-flex flex-row justify-content-end"
-            style="margin-left: 2.6rem; padding-left: 2.6rem;">
+          <div class="container-fluid d-flex flex-row justify-content-end w-100 row align-content-start"
+            style="margin-left: 2.6rem; padding-left: 2.6rem; margin-right: 2.8rem; padding-right: 2.8rem;">
             <table class="w-50 text-start" align="right">
               <tr class="text-end">
                 <td class="border-0 float-start text-start mb-2" colspan="6">Serviços</td>
-                <td class="border-0 float-end text-end mb-2">R${{ comprovante.preco_servico | number:'1.2-2' }}</td>
+                <td class="border-0 float-end text-end mb-2">R${{ comprovante.preco_servico }}</td>
               </tr>
               <tr class="text-end">
                 <td class="border-0 float-start text-start mb-2" colspan="6">Peças</td>
-                <td class="border-0 float-end text-end mb-2">R${{ soma | number:'1.2-2' }}</td>
+                <td class="border-0 float-end text-end mb-2">R${{ soma * quantidade }}</td>
               </tr>
               <tr class="text-end mb-1">
                 <b>
                   <td class="border-0 float-start text-start alert alert-dark" colspan="6"><b> Total </b></td>
                 </b>
-                <td class="border-0 float-end text-end">R${{ soma + comprovante.preco_servico | number:'1.2-2' }}</td>
+                <td class="border-0 float-end text-end">R${{ soma_total }}</td>
               </tr>
             </table>
           </div>
@@ -178,20 +180,22 @@
         <h3 class="alert alert-dark m-auto text-dark font-700 p-0">
           Pagamento
         </h3>
-        <div class="container mt-1 d-flex w-100">
-          <div class="table-responsive row d-flex align-content-start">
-            <table class="table w-100 px-1">
-              <tr>
-                <td class="border-0 mb-3 text-start pl-0 pt-0">Meios de pagamento</td>
-                <td class="border-0 mb-3 text-start pt-0">Pix</td>
-              </tr>
-              <tr>
-                <td class="border-0 pt-0 pl-0 align-self-start text-start">
-                  Transferência bancária, cartão de crédito, cartão de
-                  débito ou pix
-                </td>
-                <td class="border-0 pt-0 pl-0 align-self-start text-start">centerclimapvh@gmail.com</td>
-              </tr>
+        <div class="container-fluid mt-1 d-flex w-100">
+          <div class="table-responsive w-100 row d-flex justify-content-between align-content-start">
+            <table class="table w-100">
+              <tbody>
+                <tr>
+                  <td colspan="3" class="border-0 mb-3 text-start pl-0 pt-0">Meios de pagamento</td>
+                  <td class="border-0 mb-3 text-start pt-0">Pix</td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="border-0 pt-0 pl-0 align-self-start text-start">
+                    Transferência bancária, cartão de crédito, cartão de
+                    débito ou pix
+                  </td>
+                  <td class="border-0 pt-0 pl-0 align-self-start text-start">centerclimapvh@gmail.com</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -242,8 +246,7 @@
 </ion-content>
 
 <ion-footer class="border-0">
-  <button [disabled]="gerando" (click)="downloadPdf()" class="btn btn-primary btn-lg btn-block fix-btn text-left"
-    type="button">
+  <button [disabled]="gerando" class="btn btn-primary btn-lg btn-block fix-btn text-left" type="button">
     <span class="float-left">
       <ion-icon name="document-text-outline"></ion-icon>
       Exportar para PDF
