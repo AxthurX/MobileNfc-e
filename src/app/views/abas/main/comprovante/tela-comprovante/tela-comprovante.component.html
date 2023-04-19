@@ -22,6 +22,22 @@
           [(ngModel)]="comprovante.ordem_de_servico" type="text" required maxlength="60" />
       </ion-item>
 
+      <ion-item class="py-1 d-flex align-items-center justify-content-center">
+        <div class="small text-gray-500 d-inline-flex m-auto align-items-center justify-content-center flex-column">
+          <p class="text-clima" >Numero da ordem de serviço </p>
+          <div class="input-group shop-cart-value align-items-center  justify-content-center">
+            <span class="input-group-btn align-self-center">
+              <button (click)="ajustarQuantidade(comprovante, -1)" class="btn btn-sm" type="button">-</button>
+            </span>
+            <input (ngModelChange)="alterouQuantidadeManualmente(comprovante, $event)" type="number"
+              [(ngModel)]="comprovante.numero_ordem_servico" class="form-control border-form-control form-control-sm input-number align-self-center" />
+            <span class="input-group-btn align-self-center">
+              <button (click)="ajustarQuantidade(comprovante, 1)" class="btn btn-sm" type="button">+</button>
+            </span>
+          </div>
+        </div>
+      </ion-item>
+
       <ion-item class="py-1 align-items-center">
         <ion-label position="stacked" class="mb-1 text-clima align-self-center">
           <b> Nome </b>
@@ -284,7 +300,7 @@
         [(ngModel)]="comprovante.condicoes_garantia" />
     </ion-item>
   </div>
-  <br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
 </ion-content>
 <ion-footer class="border-0">
   <button (click)="mostrarOpcoesComprovante(comprovante)" class="btn btn-primary btn-lg btn-block fix-btn text-left"

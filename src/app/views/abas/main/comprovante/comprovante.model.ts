@@ -1,5 +1,6 @@
 export class Comprovante {
   ordem_de_servico: string;
+  numero_ordem_servico: number;
   nome: string;
   email: string;
   cpf_cnpj: string;

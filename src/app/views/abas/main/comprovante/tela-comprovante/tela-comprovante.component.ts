@@ -57,6 +57,28 @@ export class TelaComprovanteComponent implements OnInit {
     }
   }
 
+
+  ajustarQuantidade(
+    registro: Comprovante,
+    incremento: number
+  ) {
+    if (!registro.numero_ordem_servico) {
+      registro.numero_ordem_servico = 0;
+    }
+    registro.numero_ordem_servico += incremento;
+    if (registro.numero_ordem_servico <= -1) {
+      registro.numero_ordem_servico = null;
+      return;
+    }
+  }
+
+  alterouQuantidadeManualmente(registro: Comprovante, novoValor) {
+    registro.numero_ordem_servico = novoValor;
+    if (registro.numero_ordem_servico && registro.numero_ordem_servico < 0) {
+      registro.numero_ordem_servico = 1;
+    }
+  }
+
   setFocusDocumento() {
     try {
       setTimeout(() => {
