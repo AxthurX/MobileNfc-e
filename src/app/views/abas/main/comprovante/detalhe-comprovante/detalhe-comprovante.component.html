@@ -58,7 +58,7 @@
           <h3 class="text-dark font-700 p-0">
             Ordem de Serviço {{ comprovante.numero_ordem_servico }}-{{ ano }}
           </h3>
-          <p class="mb-0 py-0">{{ comprovante.ordem_de_servico }}</p>
+          <p class="my-0 py-0">{{ comprovante.ordem_de_servico }}</p>
         </div>
         <table class="table ">
           <tbody>
@@ -67,10 +67,10 @@
                 <b>Cliente: </b> {{ comprovante.nome }}
               </td>
               <td class="border-0 py-1 pt-1 px-0"><b>EMAIL :</b>
-                {{ comprovante.email | mask: "000.000.000-00||00.000.000/0000-00" }}</td>
+                {{ comprovante.email }}</td>
             </tr>
             <tr>
-              <td class="border-0 py-1 px-0"><b>CPF/CNPJ: </b> {{ comprovante.cpf_cnpj }}</td>
+              <td class="border-0 py-1 px-0"><b>CPF/CNPJ: </b> {{ comprovante.cpf_cnpj | mask: "000.000.000-00 || 00.000.000/0000-00" }}</td>
               <td class="border-0 py-1 px-0"><b>TELEFONE :</b> {{ comprovante.telefone ?? '' | mask: "(00) 00000-0000"}}
               </td>
             </tr>

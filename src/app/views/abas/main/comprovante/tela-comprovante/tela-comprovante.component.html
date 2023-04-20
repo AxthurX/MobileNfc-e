@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content class="ion-padding order-list-page ion-padding order-list-page shop-cart-page" color="light">
-  <h2 class="text-dark text-center alert m-auto">Ordem de serviço</h2>
+  <h2 class="text-bonito text-center alert m-auto">Ordem de serviço</h2>
 
   <div class="card">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
@@ -24,13 +24,14 @@
 
       <ion-item class="py-1 d-flex align-items-center justify-content-center">
         <div class="small text-gray-500 d-inline-flex m-auto align-items-center justify-content-center flex-column">
-          <p class="text-clima" >Numero da ordem de serviço </p>
-          <div class="input-group shop-cart-value align-items-center  justify-content-center">
+          <p class="text-clima"><b> Numero da ordem de serviço </b></p>
+          <div class="input-group shop-cart-value align-items-center justify-content-center mb-3">
             <span class="input-group-btn align-self-center">
               <button (click)="ajustarQuantidade(comprovante, -1)" class="btn btn-sm" type="button">-</button>
             </span>
             <input (ngModelChange)="alterouQuantidadeManualmente(comprovante, $event)" type="number"
-              [(ngModel)]="comprovante.numero_ordem_servico" class="form-control border-form-control form-control-sm input-number align-self-center" />
+              [(ngModel)]="comprovante.numero_ordem_servico"
+              class="form-control borda-numero border-form-control form-control-sm input-number align-self-center" />
             <span class="input-group-btn align-self-center">
               <button (click)="ajustarQuantidade(comprovante, 1)" class="btn btn-sm" type="button">+</button>
             </span>
@@ -174,7 +175,7 @@
   </div>
 
   <div>
-    <h2 class="text-dark text-center alert m-auto">Informações basicas</h2>
+    <h2 class="text-bonito text-center alert m-auto">Informações basicas</h2>
     <ion-item>
       <ion-label position="stacked" class="mb-1 text-clima align-self-center">
         <b> Observações </b>
@@ -185,7 +186,7 @@
   </div>
 
   <div>
-    <h2 class="text-dark text-center alert m-auto">Serviço</h2>
+    <h2 class="text-bonito text-center alert m-auto">Serviço</h2>
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -213,18 +214,18 @@
   </div>
 
   <div class="container d-flex flex-column align-items-center">
-    <h2 class="text-dark text-center alert m-auto">Peças</h2>
+    <h2 class="text-bonito text-center alert m-auto">Peças</h2>
     <ng-container *ngFor="let item of comprovante.pecas; let i = index">
-      <div class="card mb-2">
+      <div class="card mb-2 w-auto">
         <ion-grid>
           <ion-row class="table-caption">
             <ion-col>
-              <ion-label position="stacked" class="mb-1 text-center align-self-center">
+              <ion-label position="stacked" class="mb-1 text-center align-self-center text-clima">
                 Descrição
-                <ion-text color="danger">*</ion-text>
-                <input class="native-input sc-ion-input-md p-1 mb-3 align-self-center" [(ngModel)]="item.descricao"
-                  type="text" maxlength="60" />
               </ion-label>
+              <ion-text color="danger">*</ion-text>
+              <input class="native-input sc-ion-input-md p-1 mb-3 align-self-center" [(ngModel)]="item.descricao"
+                type="text" maxlength="60" />
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -280,7 +281,7 @@
   </div>
 
   <div>
-    <h2 class="text-dark text-center alert m-auto">Garantia</h2>
+    <h2 class="text-bonito text-center alert m-auto">Garantia</h2>
     <ion-item>
       <ion-label position="stacked" class="mb-1 text-clima align-self-center">
         Periodo de garantia
@@ -290,7 +291,7 @@
         [(ngModel)]="comprovante.periodo_garantia" />
     </ion-item>
 
-    <h5 class="text-dark text-center alert m-auto">Condições de garantia</h5>
+    <h5 class="text-bonito text-center alert m-auto">Condições de garantia</h5>
     <ion-item>
       <ion-label position="stacked" class="mb-1 text-clima align-self-center">
         Condições de garantia
@@ -300,7 +301,7 @@
         [(ngModel)]="comprovante.condicoes_garantia" />
     </ion-item>
   </div>
-  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
 </ion-content>
 <ion-footer class="border-0">
   <button (click)="mostrarOpcoesComprovante(comprovante)" class="btn btn-primary btn-lg btn-block fix-btn text-left"
