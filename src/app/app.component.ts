@@ -19,7 +19,6 @@ export class AppComponent {
     try {
       this.platform.ready().then(() => {
         this.color.load()
-        this.statusbar.show()
       })
     } catch{}
   }
