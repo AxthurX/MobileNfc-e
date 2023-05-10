@@ -1,4 +1,5 @@
 export class Comprovante {
+  id: number
   ordem_de_servico: string;
   numero_ordem_servico: number;
   nome: string;

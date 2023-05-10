@@ -149,7 +149,7 @@
                   <td class="border-0">{{ item.unidade }}</td>
                   <td class="border-0 text-nowrap px-4">{{ item.preco_unitario }}</td>
                   <td class="border-0 px-4">{{ item.quantidade }}</td>
-                  <td class="border-0 px-0">{{ item.preco }}</td>
+                  <td class="border-0 px-0">{{ item.preco * item.quantidade }}</td>
                 </tr>
               </table>
             </div>
@@ -163,13 +163,13 @@
               </tr>
               <tr class="text-end">
                 <td class="border-0 float-start text-start mb-2" colspan="6">Peças</td>
-                <td class="border-0 float-end text-end mb-2">R${{ soma * quantidade }}</td>
+                <td class="border-0 float-end text-end mb-2">R${{ soma }}</td>
               </tr>
               <tr class="text-end mb-1">
                 <b>
                   <td class="border-0 float-start text-start alert alert-dark" colspan="6"><b> Total </b></td>
                 </b>
-                <td class="border-0 float-end text-end">R${{ soma_total }}</td>
+                <td class="border-0 float-end text-end">R${{ soma + comprovante.preco_servico }}</td>
               </tr>
             </table>
           </div>

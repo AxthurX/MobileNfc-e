@@ -96,6 +96,7 @@
     "cordova-plugin-ionic-webview": "^5.0.0",
     "cordova-plugin-splashscreen": "6.0.2",
     "cordova-plugin-statusbar": "^3.0.0",
+    "cordova-sqlite-storage": "^6.1.0",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",
@@ -121,7 +122,8 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-file-transfer": {},
       "cordova-pdf-generator": {},
-      "cordova-plugin-app-version": {}
+      "cordova-plugin-app-version": {},
+      "cordova-sqlite-storage": {}
     },
     "platforms": [
       "browser",
