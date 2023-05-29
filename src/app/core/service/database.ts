@@ -44,11 +44,11 @@ export class DataBaseProvider {
       .catch((e) => console.log(e));
   }
 
-  // public getEtiqueta(pesquisa: string) {
-  //   const retorno: Etiqueta[] = [];
+  // public getComprovante(pesquisa: string) {
+  //   const retorno: Comprovante[] = [];
   //   return this.getDB()
   //     .then((db: SQLiteObject) => {
-  //       const sql = `select * from etiqueta`;
+  //       const sql = `select * from Comprovante`;
 
   //       return db
   //         .executeSql(sql, [])
@@ -56,11 +56,11 @@ export class DataBaseProvider {
   //           if (data.rows.length > 0) {
   //             for (let i = 0; i < data.rows.length; i++) {
   //               const registro = data.rows.item(i);
-  //               const newItem = new Etiqueta();
+  //               const newItem = new Comprovante();
   //               newItem.id = +registro.id;
   //               newItem.id_empresa = +registro.id_empresa;
   //               newItem.id_colaborador = +registro.id_colaborador;
-  //               newItem.modelo_etiqueta = +registro.modelo_etiqueta;
+  //               newItem.modelo_Comprovante = +registro.modelo_Comprovante;
   //               newItem.utilizar_preco_promocao = Util.AnyToBool(
   //                 registro.utilizar_preco_promocao
   //               );
@@ -123,11 +123,11 @@ export class DataBaseProvider {
   }
 
 
-  public getEtiquetas() {
+  public getComprovantes() {
     const retorno: Comprovante[] = [];
     return this.getDB()
       .then((db: SQLiteObject) => {
-        const sql = 'select * from etiqueta_model order by data desc limit 300';
+        const sql = 'select * from Comprovante_model order by data desc limit 300';
 
         return db
           .executeSql(sql, [])
@@ -173,12 +173,12 @@ export class DataBaseProvider {
     return db.sqlBatch(sqlStatements);
   }
 
-  public setEtiqueta(db: SQLiteObject, registros: Comprovante[]): Promise<any> {
+  public setComprovante(db: SQLiteObject, registros: Comprovante[]): Promise<any> {
     const sqlStatements: any[] = [];
 
     registros.forEach((registro) => {
       sqlStatements.push([
-        'insert into etiqueta (id) values (?)',
+        'insert into Comprovante (id) values (?)',
         [
           registro.id,
         ],
@@ -188,21 +188,21 @@ export class DataBaseProvider {
     return db.sqlBatch(sqlStatements);
   }
 
-  public salvarEtiqueta(etiqueta: Comprovante): Promise<any> {
+  public salvarComprovante(Comprovante: Comprovante): Promise<any> {
     return this.getDB()
       .then((db: SQLiteObject) => {
         const sqlStatements: any[] = [];
 
         let comando = '';
-        if (etiqueta.id > 0) {
+        if (Comprovante.id > 0) {
           comando =
-            'update etiqueta_model set data = ?, json = ? where id = ' +
-            etiqueta.id;
+            'update Comprovante_model set data = ?, json = ? where id = ' +
+            Comprovante.id;
         } else {
-          comando = 'insert into etiqueta_model (data, json) values (?, ?)';
+          comando = 'insert into Comprovante_model (data, json) values (?, ?)';
         }
 
-        sqlStatements.push([comando, [etiqueta.id]]);
+        sqlStatements.push([comando, [Comprovante.id]]);
 
         return db.sqlBatch(sqlStatements);
       })
@@ -212,11 +212,11 @@ export class DataBaseProvider {
       });
   }
 
-  public excluirEtiqueta(id: number): Promise<any> {
+  public excluirComprovante(id: number): Promise<any> {
     return this.getDB()
       .then((db: SQLiteObject) => {
         const sqlStatements: any[] = [];
-        const comando = 'delete from etiqueta_model where id = ?';
+        const comando = 'delete from Comprovante_model where id = ?';
         sqlStatements.push([comando, [id]]);
         return db.sqlBatch(sqlStatements);
       })
@@ -240,8 +240,8 @@ export class DataBaseProvider {
     // Criando as tabelas
     db.sqlBatch([
      [
-        //Etiqueta
-        'CREATE TABLE IF NOT EXISTS etiqueta ([id] [INTEGER] primary key AUTOINCREMENT, [id_empresa] [INTEGER] NOT NULL, [id_colaborador] [INTEGER] NOT NULL, [modelo_etiqueta] [INTEGER] NOT NULL, [utilizar_preco_promocao] [bit] NOT NULL, [nome_modelo_personalizado] [nvarchar](200) NULL, [ordenacao_impressao] [INTEGER] NOT NULL, [carregar_informacoes_nutricionais] [bit] NOT NULL, [id_local_estoque] [INTEGER] NOT NULL, [id_nuvem] [INTERGER] NOT NULL, [data] [INTEGER] NOT NULL, [data_sicronizacao] [INTERGER] NOT NULL, [observacao] [nvarchar](500) NOT NULL)',
+        //Comprovante
+        'CREATE TABLE IF NOT EXISTS Comprovante ([id] [INTEGER] primary key AUTOINCREMENT, [id_empresa] [INTEGER] NOT NULL, [id_colaborador] [INTEGER] NOT NULL, [modelo_Comprovante] [INTEGER] NOT NULL, [utilizar_preco_promocao] [bit] NOT NULL, [nome_modelo_personalizado] [nvarchar](200) NULL, [ordenacao_impressao] [INTEGER] NOT NULL, [carregar_informacoes_nutricionais] [bit] NOT NULL, [id_local_estoque] [INTEGER] NOT NULL, [id_nuvem] [INTERGER] NOT NULL, [data] [INTEGER] NOT NULL, [data_sicronizacao] [INTERGER] NOT NULL, [observacao] [nvarchar](500) NOT NULL)',
       ],
       [
         //usuario

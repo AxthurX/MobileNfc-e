@@ -31,14 +31,8 @@ registerLocaleData(localePtBr);
   providers: [
     StatusBar,
     SplashScreen,
-    {
-      provide: RouteReuseStrategy,
-      useClass: IonicRouteStrategy,
-    },
-    {
-      provide: LOCALE_ID,
-      useValue: 'pt-BR'
-    },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
   ],
   bootstrap: [AppComponent],
   exports: [HttpClientModule],

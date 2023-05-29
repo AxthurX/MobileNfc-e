@@ -238,11 +238,11 @@ export class TelaComprovanteComponent implements OnInit {
        return;
      }
 
-     if (comprovante.pecas.length < 1) {
+/*      if (comprovante.pecas.length < 1) {
        Util.AlertWarning('Selecione pelos menos uma peça!');
        this.carregando = false;
        return;
-     }
+     } */
 
       const modal = await this.modal.create({
         component: DetalheComprovanteComponent,
