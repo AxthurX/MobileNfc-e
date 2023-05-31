@@ -13,7 +13,9 @@ export class AppComponent {
     private color: ColorSchemeService,
     private platform: Platform,
     private statusbar: StatusBar
-  ) {}
+  ) {
+    this.initializeApp()
+  }
 
   initializeApp() {
     try {

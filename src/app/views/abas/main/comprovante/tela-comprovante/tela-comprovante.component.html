@@ -61,7 +61,7 @@
           <b> CPF/CNPJ </b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
-        <input class="native-input sc-ion-input-md p-1 mb-3 align-self-center text-center" placeholder="cpf/cnpj" type="text" id="cpf_cnpj" mask="CPF_CNPJ"
+        <input class="native-input sc-ion-input-md p-1 mb-3 align-self-center text-center" placeholder="Ex.: 000.000.000-00" type="text" id="cpf_cnpj" mask="CPF_CNPJ"
           [(ngModel)]="comprovante.cpf_cnpj" maxlength="25" />
       </ion-item>
 
@@ -70,7 +70,7 @@
           <b> Telefone </b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
-        <input class="native-input sc-ion-input-md p-1 px-1 mb-3 align-self-center" placeholder="Telefone" type="text" prefix="+55 "
+        <input class="native-input sc-ion-input-md p-1 px-1 mb-3 align-self-center text-center" placeholder="Ex.: (00) 0 0000-0000" type="text"
           mask="(00) 0000-0000||(00) 0 0000-0000" id="telefone" [(ngModel)]="comprovante.telefone"
           [ngModelOptions]="{standalone: false}" maxlength="22" />
       </ion-item>
