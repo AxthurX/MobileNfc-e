@@ -3,7 +3,7 @@
     <name>Center Comprovante</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Arthur Lta desenvolvimento</author>
-    <content original-src="index.html" src="http://0.0.0.0:8100" />
+    <content original-src="index.html" src="http://172.31.80.1:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -108,4 +108,6 @@
     <allow-navigation href="http://192.168.40.81:8102" sessionid="7e0d5d64" />
     <allow-navigation href="http://192.168.40.81:8100" sessionid="926e46c9" />
     <allow-navigation href="http://172.18.160.1:8100" sessionid="dd4ca6f6" />
+    <allow-navigation href="http://172.27.160.1:8100" sessionid="b94b404e" />
+    <allow-navigation href="http://172.31.80.1:8100" sessionid="ef615e2d" />
 </widget>

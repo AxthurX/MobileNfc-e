@@ -22,7 +22,7 @@
           <table class="table mb-0">
             <tbody>
               <tr>
-                <td class="border-0 py-1 pl-0"><b>Tec. Osmar Filho </b></td>
+                <td class="border-0 py-1 pl-0"><b>Téc. Osmar Filho </b></td>
                 <td class="border-0 py-1 pl-0">
                   <ion-icon name="mail"></ion-icon>
                   centerclimapvh@gmail.com
@@ -190,10 +190,9 @@
                 </tr>
                 <tr>
                   <td colspan="3" class="border-0 pt-0 pl-0 align-self-start text-start">
-                    Transferência bancária, cartão de crédito, cartão de
-                    débito ou pix
+                    {{comprovante.meios_pagamento}}
                   </td>
-                  <td class="border-0 pt-0 pl-0 align-self-start text-start">centerclimapvh@gmail.com</td>
+                  <td class="border-0 pt-0 pl-0 align-self-start text-start">{{comprovante.conta_pagamento}}</td>
                 </tr>
               </tbody>
             </table>
@@ -222,7 +221,7 @@
       <div>
         <i>
           <p class="text-center">
-            Agredeçemos pela confiança me nossos serviços!
+            Agredeçemos pela confiança em nossos serviços!
           </p>
         </i>
         <h6 class="text-center">Porto velho, {{ date_now }}</h6>

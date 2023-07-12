@@ -256,6 +256,33 @@
   </div>
 
   <div>
+    <h2 class="text-bonito text-center alert m-auto mt-2">Pagamentos</h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked" class="mb-1 text-clima align-self-center">
+              <b> Meios de pagamentos </b>
+            </ion-label>
+            <input class="native-input sc-ion-input-md p-1 mb-3 align-self-center text-center" type="text"
+              [(ngModel)]="comprovante.meios_pagamento" />
+          </ion-item>
+        </ion-col>
+
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked" class="mb-1 text-clima align-self-center">
+              Conta para fazer o pagamentos
+            </ion-label>
+            <input class="native-input sc-ion-input-md p-1 px-1 mb-3 align-self-center"
+             type="text" [(ngModel)]="comprovante.conta_pagamento" />
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div>
     <h2 class="text-bonito text-center alert m-auto mt-2">Garantia</h2>
     <ion-item>
       <ion-label position="stacked" class="mb-1 text-clima align-self-center">
