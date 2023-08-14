@@ -57,11 +57,7 @@ export class TelaComprovanteComponent implements OnInit {
     }
   }
 
-
-  ajustarQuantidade(
-    registro: Comprovante,
-    incremento: number
-  ) {
+  ajustarQuantidade(registro: Comprovante, incremento: number) {
     if (!registro.numero_ordem_servico) {
       registro.numero_ordem_servico = 0;
     }
@@ -217,38 +213,41 @@ export class TelaComprovanteComponent implements OnInit {
         Util.AlertInfo('Selecione o município');
         this.carregando = false;
         return;
-     }
+      }
 
-     if (!comprovante.bairro) {
+      if (!comprovante.bairro) {
         Util.AlertWarning('Selecione o bairro');
         this.carregando = false;
         return;
-     }
+      }
 
-     if (
+      if (
         !comprovante.nome ||
         !comprovante.cep ||
         !comprovante.telefone ||
         !comprovante.observacao_info
-     ) {
+      ) {
         Util.AlertWarning('Ops, corrija os campos inválidos');
         this.carregando = false;
         return;
-     }
+      }
 
-     if (!comprovante.periodo_garantia || !comprovante.condicoes_garantia) {
+      if (!comprovante.periodo_garantia || !comprovante.condicoes_garantia) {
         Util.AlertWarning('Corrija os campos de garantia e tente novamente!');
         this.carregando = false;
         return;
-     }
+      }
 
-    // if (comprovante.pecas.length < 1) {
-    //    Util.AlertWarning('Selecione pelos menos uma peça!');
-    //    this.carregando = false;
-    //    return;
-    //  }
+      // if (comprovante.pecas.length < 1) {
+      //    Util.AlertWarning('Selecione pelos menos uma peça!');
+      //    this.carregando = false;
+      //    return;
+      //  }
 
-    const modal = await this.modal.create({ component: DetalheComprovanteComponent, componentProps: { comprovante}});
+      const modal = await this.modal.create({
+        component: DetalheComprovanteComponent,
+        componentProps: { comprovante },
+      });
       await modal.present();
     } catch (e) {
       this.modal.dismiss();

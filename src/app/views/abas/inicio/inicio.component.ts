@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { MainComponent } from '../main/main.component';
 import { ColorSchemeService } from 'src/app/core/color-scheme.service';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { Util } from 'src/app/core/util.model';
@@ -12,17 +10,18 @@ import { Util } from 'src/app/core/util.model';
   styleUrls: ['./inicio.component.scss'],
 })
 export class InicioComponent implements OnInit {
-  public temaEscuro: boolean;
   versao: string;
+  public temaEscuro: boolean;
   constructor(
     private color: ColorSchemeService,
-    private modal: ModalController,
     private appVersion: AppVersion,
     private rota: Router
   ) {
     this.color.load();
     this.temaEscuro = this.color.currentActive() === 'dark';
+  }
 
+  ngOnInit() {
     try {
       this.appVersion.getVersionNumber().then((versao) => {
         this.versao = versao;
@@ -36,24 +35,6 @@ export class InicioComponent implements OnInit {
     } else {
       this.color.update('light');
     }
-  }
-
-  ngOnInit() {}
-
-  async showTelaConsulta() {
-    const modal = await this.modal.create({
-      component: 'ConsultaProdutoComponent',
-      componentProps: {
-        apenas_consulta: true,
-      },
-    });
-
-    modal.onDidDismiss().then((dataReturned) => {
-      if (dataReturned !== null) {
-      }
-    });
-
-    return await modal.present();
   }
 
   goTo(rota: any) {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -7,11 +6,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  constructor(private rota: Router) {}
-
+  constructor() {}
   ngOnInit() {}
-
-  goTo(rota: any) {
-    this.rota.navigateByUrl(rota);
-  }
 }

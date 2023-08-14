@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { DadosEmpresa } from 'src/app/core/service/auth.service';
 import { Comprovante } from './comprovante.model';
 
@@ -32,9 +32,5 @@ export class ComprovanteComponent {
     }
 
     this.rota.navigate(['home/comprovante/tela-comprovante', { acao }]);
-  }
-
-  AbrirTelaOrcamento() {
-    this.rota.navigate(['home/comprovante/orcamento']);
   }
 }

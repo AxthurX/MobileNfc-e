@@ -1,27 +1,26 @@
+import { formatDate } from '@angular/common';
 import {
   Component,
   ElementRef,
   HostListener,
-  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Util } from 'src/app/core/util.model';
+import {
+  PDFGenerator,
+  PDFGeneratorOptions,
+} from '@awesome-cordova-plugins/pdf-generator/ngx';
 import { ModalController } from '@ionic/angular';
-import { PDFGenerator } from '@awesome-cordova-plugins/pdf-generator/ngx';
 import { OverlayService } from 'src/app/core/service/overlay.service';
-import { Comprovante } from '../comprovante.model';
-import { formatDate } from '@angular/common';
+import { Util } from 'src/app/core/util.model';
 
 @Component({
-  selector: 'app-orcamento',
-  templateUrl: './orcamento.component.html',
-  styleUrls: ['./orcamento.component.scss'],
+  selector: 'app-detalhe-orcamento',
+  templateUrl: './detalhe-orcamento.component.html',
+  styleUrls: ['./detalhe-orcamento.component.scss'],
 })
-export class OrcamentoComponent implements OnInit, OnDestroy {
+export class DetalheOrcamentoComponent implements OnInit {
   @ViewChild('imprimir') imprimir: ElementRef;
-  comprovante: Comprovante;
-  comprovantes: Comprovante[] = [];
   date_now: string;
   gerando: boolean;
   base64: string;
@@ -44,9 +43,9 @@ export class OrcamentoComponent implements OnInit, OnDestroy {
       const data = new Date();
       this.date_now = formatDate(new Date(), 'dd/MM/yyyy', 'pt-BR');
 
-      setTimeout(() => {
-        this.downloadPdf();
-      }, 200);
+      // setTimeout(() => {
+      //   this.downloadPdf();
+      // }, 200);
     } catch (e) {
       Util.TratarErro(e);
     }
@@ -59,15 +58,13 @@ export class OrcamentoComponent implements OnInit, OnDestroy {
   }
 
   downloadPdf() {
-    this.comprovantes.push(this.comprovante);
     setTimeout(() => {
       try {
         this.gerando = true;
         const content = document.getElementById('imprimir')?.innerHTML;
-        const options = {
+        const options: PDFGeneratorOptions = {
           documentSize: 'A4',
           type: 'share',
-          // landscape: 'portrait',
           fileName: 'comprovante.pdf',
         };
         this.pdf

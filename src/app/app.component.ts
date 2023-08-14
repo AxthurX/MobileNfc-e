@@ -14,14 +14,14 @@ export class AppComponent {
     private platform: Platform,
     private statusbar: StatusBar
   ) {
-    this.initializeApp()
+    this.initializeApp();
   }
 
   initializeApp() {
     try {
       this.platform.ready().then(() => {
-        this.color.load()
-      })
-    } catch{}
+        this.color.load();
+      });
+    } catch {}
   }
 }

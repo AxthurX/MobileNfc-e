@@ -15,11 +15,17 @@
   <div class="main_content_div">
     <div class="content_div">
       <div class="grid_box">
-        <div class="box_div" color="medium" (click)="goTo('comprovante')">
+        <div class="box_div" color="medium" (click)="goTo('/home/comprovante')">
           <ion-icon name="receipt-outline"></ion-icon>
           <ion-label>Comprovante</ion-label>
         </div>
+
+        <div class="box_div" color="medium" (click)="goTo('/home/orcamento')">
+          <ion-icon name="reader-outline"></ion-icon>
+          <ion-label>Orçamento</ion-label>
+        </div>
       </div>
+
       <div class="grid_box">
         <div class="box_div" (click)="emBreve()">
           <ion-badge class="rotulo-direita">Em breve</ion-badge>

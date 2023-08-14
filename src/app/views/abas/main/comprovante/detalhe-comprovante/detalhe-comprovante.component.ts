@@ -66,7 +66,7 @@ export class DetalheComprovanteComponent implements OnInit, OnDestroy {
       history.pushState(modalState, null);
 
       setTimeout(() => {
-        this.downloadPdf()
+        this.downloadPdf();
       }, 200);
     } catch (e) {
       Util.TratarErro(e);

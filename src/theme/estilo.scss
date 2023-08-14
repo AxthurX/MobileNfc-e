@@ -9,32 +9,32 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 @font-face {
-  font-family: 'regular';
+  font-family: "regular";
   src: url(~src/assets/fonts/Montserrat-Regular.ttf);
 }
 
 @font-face {
-  font-family: 'semi-bold';
+  font-family: "semi-bold";
   src: url(~src/assets/fonts/Montserrat-SemiBold.ttf);
 }
 
 @font-face {
-  font-family: 'medium';
+  font-family: "medium";
   src: url(~src/assets/fonts/Montserrat-Medium.ttf);
 }
 
 @font-face {
-  font-family: 'bold';
+  font-family: "bold";
   src: url(~src/assets/fonts/Montserrat-Bold.ttf);
 }
 
 @font-face {
-  font-family: 'nunito';
+  font-family: "nunito";
   src: url(~src/assets/fonts/NunitoSans-Regular.ttf);
 }
 
 * {
-  font-family: 'regular';
+  font-family: "regular";
 }
 
 ion-label {
@@ -43,11 +43,11 @@ ion-label {
 }
 
 ion-button {
-  --background: linear-gradient(to right, #7dded1, #18655D);
+  --background: linear-gradient(to right, #7dded1, #18655d);
   text-transform: capitalize;
   letter-spacing: 0.5px;
   font-size: 14px;
-  font-family: 'medium';
+  font-family: "medium";
 }
 
 .otp-input {
@@ -79,35 +79,35 @@ td {
 }
 
 .monthview-selected {
-  background-color: #2BAD9C;
+  background-color: #2bad9c;
 }
 
-  ion-toolbar {
-    ion-title {
-      color: white;
-      font-family: 'semi-bold' !important;
-      font-size: 16px;
-    }
-
-    ion-select {
-      font-family: 'semi-bold';
-      color: var(--ion-color-primary);
-      width: fit-content;
-    }
-
-    ion-button {
-      margin: 0;
-      --background: transparent;
-      font-family: 'semi-bold';
-
-      ion-icon {
-        margin-right: 5px;
-      }
-    }
+ion-toolbar {
+  ion-title {
+    color: white;
+    font-family: "semi-bold" !important;
+    font-size: 16px;
   }
 
+  ion-select {
+    font-family: "semi-bold";
+    color: var(--ion-color-primary);
+    width: fit-content;
+  }
+
+  ion-button {
+    margin: 0;
+    --background: transparent;
+    font-family: "semi-bold";
+
+    ion-icon {
+      margin-right: 5px;
+    }
+  }
+}
+
 ion-input {
-  font-family: 'medium' !important;
+  font-family: "medium" !important;
 }
 
 ion-modal.custom-modal {

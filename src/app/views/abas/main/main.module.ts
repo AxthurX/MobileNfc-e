@@ -9,17 +9,12 @@ import { MainComponent } from './main.component';
   imports: [
     SharedModule,
     IonicModule,
-    RouterModule.forChild([{
-      path: '',
-      component: MainComponent,
-      children: [{
-        path: 'comprovante',
-        loadChildren: () =>
-          import('../main/comprovante/comprovante.module').then(
-            (m) => m.ComprovanteModule
-          ),
-      }, ],
-    }, ]),
+    RouterModule.forChild([
+      {
+        path: '',
+        component: MainComponent,
+      },
+    ]),
   ],
 })
 export class MainModule {}

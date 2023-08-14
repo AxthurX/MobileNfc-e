@@ -24,7 +24,7 @@ registerLocaleData(localePtBr);
     HttpClientModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot({
-      dropSpecialCharacters: true, // ao salvar, vai limpar a mascara,
+      dropSpecialCharacters: true,
       validation: true,
     }),
   ],
@@ -38,11 +38,15 @@ registerLocaleData(localePtBr);
   exports: [HttpClientModule],
 })
 export class AppModule {
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(
+    platform: Platform,
+    statusBar: StatusBar,
+    splashScreen: SplashScreen
+  ) {
     platform.ready().then(() => {
       //Criando o banco de dados
       statusBar.styleDefault();
-      splashScreen.hide(); // <-- aqui
+      splashScreen.hide();
     });
   }
 }

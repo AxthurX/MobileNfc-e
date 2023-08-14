@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [{
+const routes: Routes = [
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
@@ -16,16 +17,11 @@ const routes: Routes = [{
     loadChildren: () =>
       import('./views/abas/inicio/inicio.module').then((m) => m.InicioModule),
   },
-  {
-    path: 'comprovante',
-    loadChildren: () =>
-      import('./views/abas/main/comprovante/comprovante.module').then((m) => m.ComprovanteModule)
-  },
 ];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules
+      preloadingStrategy: PreloadAllModules,
     }),
   ],
   exports: [RouterModule],
