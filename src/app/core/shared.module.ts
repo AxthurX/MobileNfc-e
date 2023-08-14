@@ -5,10 +5,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BtnVoltarComponent } from './components/btn-voltar.component';
 import { CabecalhoComprovanteComponent } from './components/cabecalho-comprovante/cabecalho-comprovante.component';
 import { BtnSairComponent } from './components/btn-sair.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [BtnVoltarComponent, BtnSairComponent,CabecalhoComprovanteComponent],
-  imports: [CommonModule, IonicModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, IonicModule, ReactiveFormsModule, FormsModule, NgxMaskModule.forChild()],
   exports: [
     BtnVoltarComponent,
     CommonModule,
@@ -17,7 +18,7 @@ import { BtnSairComponent } from './components/btn-sair.component';
     FormsModule,
     BtnVoltarComponent,
     BtnSairComponent,
-    CabecalhoComprovanteComponent,
+    CabecalhoComprovanteComponent
   ],
   providers: [NavParams],
 })

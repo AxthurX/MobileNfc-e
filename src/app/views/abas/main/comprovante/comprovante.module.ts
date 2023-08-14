@@ -7,12 +7,14 @@ import { ComprovanteComponent } from './comprovante.component';
 import { TelaComprovanteComponent } from './tela-comprovante/tela-comprovante.component';
 import { DetalheComprovanteComponent } from './detalhe-comprovante/detalhe-comprovante.component';
 import { PDFGenerator } from '@awesome-cordova-plugins/pdf-generator/ngx';
+import { OrcamentoComponent } from './orcamento/orcamento.component';
 
 @NgModule({
   declarations: [
     ComprovanteComponent,
     TelaComprovanteComponent,
     DetalheComprovanteComponent,
+    OrcamentoComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,10 @@ import { PDFGenerator } from '@awesome-cordova-plugins/pdf-generator/ngx';
       {
         path: 'detalhe-comprovante',
         component: DetalheComprovanteComponent,
+      },
+      {
+        path: 'orcamento',
+        component: OrcamentoComponent,
       },
     ]),
   ],

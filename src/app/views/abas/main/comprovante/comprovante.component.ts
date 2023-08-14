@@ -33,4 +33,8 @@ export class ComprovanteComponent {
 
     this.rota.navigate(['home/comprovante/tela-comprovante', { acao }]);
   }
+
+  AbrirTelaOrcamento() {
+    this.rota.navigate(['home/comprovante/orcamento']);
+  }
 }

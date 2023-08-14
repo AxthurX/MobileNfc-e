@@ -207,6 +207,10 @@ export class TelaComprovanteComponent implements OnInit {
     this.rota.navigate(['home/comprovante/detalhe-comprovante']);
   }
 
+  AbrirTelaOrçamento() {
+    this.rota.navigate(['home/comprovante/orcamento']);
+  }
+
   async OnSalvar(comprovante: Comprovante) {
     try {
       if (!comprovante.municipio) {
