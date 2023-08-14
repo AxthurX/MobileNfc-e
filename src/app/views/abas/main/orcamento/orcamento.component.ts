@@ -18,6 +18,6 @@ export class OrcamentoComponent implements OnInit {
   ngOnInit() {}
 
   AbrirTelaOrcamento() {
-    this.rota.navigate(['home/comprovante/detalhe-comprovante']);
+    this.rota.navigate(['home/orcamento/detalhe-orcamento']);
   }
 }
