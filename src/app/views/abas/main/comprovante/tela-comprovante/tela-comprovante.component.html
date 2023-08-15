@@ -9,16 +9,16 @@
 </ion-header>
 
 <ion-content class="ion-padding order-list-page ion-padding order-list-page shop-cart-page" color="light">
-  <h2 class="text-bonito text-center alert m-auto">Ordem de serviço</h2>
+  <h4 class="text-bonito text-center alert m-auto">Ordem de serviço</h4>
 
-  <div class="card">
+  <div class="text-center">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item class="py-1 align-items-center">
         <ion-label position="stacked" class="mb-2 text-clima align-self-center">
           <b> Ordem de serviço:</b>
           <ion-text color="danger">*</ion-text>
         </ion-label>
-        <textarea class="native-input sc-ion-input-md p-1 mb-3 rounded-4 align-self-center" rows="3"
+        <textarea class="native-input sc-ion-input-md p-1 mb-3 rounded-4 align-self-center" rows="5" cols="40"
           [(ngModel)]="comprovante.ordem_de_servico" maxlength="120" placeholder="Descrições sobre a ordem de serviço"
           required></textarea>
       </ion-item>
@@ -154,19 +154,19 @@
   </div>
 
   <div>
-    <h2 class="text-bonito text-center alert m-auto">Informações basicas</h2>
+    <h4 class="text-bonito text-center alert m-auto">Informações basicas</h4>
     <ion-item>
       <ion-label position="stacked" class="mb-1 text-clima align-self-center">
         <b> Observações </b>
       </ion-label>
       <textarea placeholder="Observações" class="native-input sc-ion-input-md p-1 mb-3 align-self-center text-center"
-        rows="6" maxlength="80" [(ngModel)]="comprovante.observacao_info">
+        rows="5" cols="40" maxlength="80" [(ngModel)]="comprovante.observacao_info">
     </textarea>
     </ion-item>
   </div>
 
   <div>
-    <h2 class="text-bonito text-center alert m-auto">Serviço</h2>
+    <h4 class="text-bonito text-center alert m-auto">Serviço</h4>
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -194,7 +194,7 @@
   </div>
 
   <div class="container d-flex flex-column align-items-center">
-    <h2 class="text-bonito text-center alert m-auto">Peças</h2>
+    <h4 class="text-bonito text-center alert m-auto">Peças</h4>
     <ng-container *ngFor="let item of comprovante.pecas; let i = index">
       <div class="card mb-2 w-auto">
         <ion-grid>
@@ -236,14 +236,6 @@
               <input class="native-input sc-ion-input-md p-1 mb-3 w-px align-self-center" type="number" maxlength="60"
                 [(ngModel)]="item.quantidade" />
             </ion-col>
-            <ion-col class="col-sm-5" size="5">
-              <ion-label position="stacked" class="mb-1 text-clima text-center align-self-center">
-                Preço
-              </ion-label>
-              <input class="native-input sc-ion-input-md p-1 mb-3 w-px align-self-center" type="text" mask="separator.2"
-                [thousandSeparator]="'.'" [decimalMarker]="','" prefix="R$ " [dropSpecialCharacters]="true"
-                maxlength="15" [(ngModel)]="item.preco" />
-            </ion-col>
           </ion-row>
         </ion-grid>
         <div class="d-grid gap-2 align-self-center mt-3 text-center align-self-center">
@@ -261,7 +253,7 @@
   </div>
 
   <div>
-    <h2 class="text-bonito text-center alert m-auto mt-2">Pagamentos</h2>
+    <h4 class="text-bonito text-center alert m-auto mt-2">Pagamentos</h4>
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -277,7 +269,7 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked" class="mb-1 text-clima align-self-center">
-              Conta para fazer o pagamentos
+              Contas para pagamentos
             </ion-label>
             <input class="native-input sc-ion-input-md p-1 px-1 mb-3 align-self-center" type="text"
               [(ngModel)]="comprovante.conta_pagamento" />
@@ -288,7 +280,7 @@
   </div>
 
   <div>
-    <h2 class="text-bonito text-center alert m-auto mt-2">Garantia</h2>
+    <h4 class="text-bonito text-center alert m-auto mt-2">Garantia</h4>
     <ion-item>
       <ion-label position="stacked" class="mb-1 text-clima align-self-center">
         Periodo de garantia

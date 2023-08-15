@@ -9,7 +9,7 @@ import {
   ModalController,
 } from '@ionic/angular';
 import { AuthService } from 'src/app/core/service/auth.service';
-import { Comprovante, Pecas } from '../comprovante.model';
+import { Comprovante } from '../comprovante.model';
 import { DetalheComprovanteComponent } from '../detalhe-comprovante/detalhe-comprovante.component';
 
 @Component({
@@ -22,7 +22,6 @@ export class TelaComprovanteComponent implements OnInit {
   @ViewChild('btnVoltar') btnVoltar: any;
   comprovante = new Comprovante();
   comprovantes: Comprovante[] = [];
-  pecas: Pecas[] = [];
   carregando: boolean;
   submitted: boolean;
   consultandoEndereco: boolean;
@@ -112,7 +111,6 @@ export class TelaComprovanteComponent implements OnInit {
         unidade: 0,
         preco_unitario: 0,
         quantidade: 0,
-        preco: 0,
       });
     } catch (e) {
       Util.TratarErro(e);
@@ -124,24 +122,24 @@ export class TelaComprovanteComponent implements OnInit {
       if (comprovante.cep && comprovante.cep.length === 8 && navigator.onLine) {
         this.consultandoEndereco = true;
         this.utilSrv.consultaCEP(comprovante.cep).subscribe({
-          next: (endereco) => {
-            this.enderecoConsultado = endereco;
-            if (endereco.erro) {
-              Util.AlertWarning(
-                'CEP não localizado, verifique se está correto!'
-              );
-              this.consultandoEndereco = false;
-            } else {
-              comprovante.complemento = endereco.complemento;
-              comprovante.logradouro = endereco.logradouro;
-              comprovante.bairro = endereco.bairro;
-              comprovante.uf = endereco.uf;
-              comprovante.municipio = endereco.localidade;
+            next: (endereco) => {
+              this.enderecoConsultado = endereco;
+              if (endereco.erro) {
+                Util.AlertWarning(
+                  'CEP não localizado, verifique se está correto!'
+                );
+                this.consultandoEndereco = false;
+              } else {
+                comprovante.complemento = endereco.complemento;
+                comprovante.logradouro = endereco.logradouro;
+                comprovante.bairro = endereco.bairro;
+                comprovante.uf = endereco.uf;
+                comprovante.municipio = endereco.localidade;
 
-              this.consultandoEndereco = false;
-            }
-          },
-        }),
+                this.consultandoEndereco = false;
+              }
+            },
+          }),
           (e: any) => {
             Util.TratarErro(e);
             this.consultandoEndereco = false;
@@ -201,10 +199,6 @@ export class TelaComprovanteComponent implements OnInit {
 
   AbrirTelaDetalhe() {
     this.rota.navigate(['home/comprovante/detalhe-comprovante']);
-  }
-
-  AbrirTelaOrçamento() {
-    this.rota.navigate(['home/comprovante/orcamento']);
   }
 
   async OnSalvar(comprovante: Comprovante) {

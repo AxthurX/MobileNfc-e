@@ -1,0 +1,143 @@
+<ion-header class="osahan-nav">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-btn-voltar #btnVoltar [solicitar_confirmacao]="true"></app-btn-voltar>
+    </ion-buttons>
+    <ion-title> Cadastrar Orçamento
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding order-list-page ion-padding order-list-page shop-cart-page" color="light">
+  <h4 class="text-bonito text-center alert m-auto">Orçamento</h4>
+
+  <ion-list lines="full" class="ion-no-margin ion-no-padding">
+    <ion-item class="py-1 align-items-center">
+      <ion-label position="stacked" class="mb-1 text-clima align-self-center">
+        <b> Contratante </b>
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <input class="native-input sc-ion-input-md p-1 mb-3 rounded-4 align-self-center text-center"
+        [(ngModel)]="orcamento.contratante" name="contratante" id="contratante" type="text" placeholder="Contratante"
+        maxlength="80" />
+    </ion-item>
+
+    <ion-item class="py-1">
+      <ion-label position="stacked" class="mb-1 text-clima align-self-center">
+        <b> CPF/CNPJ </b>
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <input class="native-input sc-ion-input-md p-1 mb-3 align-self-center text-center"
+        placeholder="Ex.: 000.000.000-00" type="text" id="cpf_cnpj" mask="CPF_CNPJ" [(ngModel)]="orcamento.cpf_cnpj"
+        maxlength="80" />
+    </ion-item>
+
+    <ion-item class="py-1">
+      <ion-label position="stacked" class="mb-1 text-clima align-self-center">
+        <b> Não incluso </b>
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <input class="native-input sc-ion-input-md p-1 mb-3 align-self-center text-center"
+        [(ngModel)]="orcamento.nao_incluso" type="text" maxlength="80" />
+    </ion-item>
+
+    <ion-item class="py-1">
+      <ion-label position="stacked" class="mb-1 text-clima align-self-center">
+        <b> Formas de pagamento </b>
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <input class="native-input sc-ion-input-md p-1 mb-3 align-self-center text-center"
+        [(ngModel)]="orcamento.formas_pagamento" type="text" maxlength="80" />
+    </ion-item>
+
+    <ion-item class="py-1">
+      <ion-label position="stacked" class="mb-1 text-clima align-self-center">
+        <b> Dados do pagamento </b>
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <input class="native-input sc-ion-input-md p-1 mb-3 align-self-center text-center"
+        [(ngModel)]="orcamento.dados_pagamento" type="text" maxlength="80" />
+    </ion-item>
+
+    <ion-item class="py-1">
+      <ion-label position="stacked" class="mb-1 text-clima align-self-center">
+        <b> Observação </b>
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <textarea class="native-input sc-ion-input-md p-1 mb-3 align-self-center text-center" wrap="hard" cols="30"
+        rows="5" [(ngModel)]="orcamento.observacao"></textarea>
+    </ion-item>
+  </ion-list>
+
+  <div class="container d-flex flex-column align-items-center">
+    <h4 class="text-bonito text-center alert m-auto">Serviço</h4>
+    <ng-container class="my-2" *ngFor="let item of orcamento.servico; let i = index">
+      <div class="card mb-2 w-auto">
+        <ion-grid>
+          <ion-row class="table-caption">
+            <ion-col>
+              <ion-label position="stacked" class="mb-1 text-center align-self-center text-clima">
+                Descrição produtos
+              </ion-label>
+              <ion-text color="danger">*</ion-text>
+              <input class="native-input sc-ion-input-md p-1 mb-3 align-self-center"
+                [(ngModel)]="item.descricao_produto" type="text" maxlength="80" />
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row class="table-caption">
+            <ion-col>
+              <ion-label position="stacked" class="mb-1 text-clima text-center align-self-center">
+                Descrição serviço
+              </ion-label>
+              <input class="native-input sc-ion-input-md p-1 mb-3 align-self-center" type="text" maxlength="80"
+                [(ngModel)]="item.descricao_servico" />
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row class="justify-content-center">
+            <ion-col size="5">
+              <ion-label position="stacked" class="mb-1 text-clima text-center align-self-center">
+                Valor Unitário
+              </ion-label>
+              <input class="native-input sc-ion-input-md p-1 mb-3 w-px align-self-center" type="text" mask="separator.2"
+                [thousandSeparator]="'.'" [decimalMarker]="','" prefix="R$ " [dropSpecialCharacters]="true"
+                maxlength="15" [(ngModel)]="item.valor_unitario" />
+            </ion-col>
+            <ion-col class="col-sm-5" size="5">
+              <ion-label position="stacked" class="mb-1 text-clima text-center align-self-center">
+                Quantidade
+              </ion-label>
+              <input class="native-input sc-ion-input-md p-1 mb-3 w-px align-self-center" type="number" maxlength="80"
+                [(ngModel)]="item.quantidade" />
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div class="d-grid gap-2 align-self-center mt-3 text-center align-self-center">
+          <button (click)="removerNovoServico(i)" type="button" class="btn btn-outline-danger btn-sm text-center mb-4">
+            Remover Serviço
+          </button>
+        </div>
+      </div>
+    </ng-container>
+    <div class="d-grid gap-2 align-self-center mt-3 text-center">
+      <button (click)="addNovoServico()" type="button" class="btn btn-outline-clima center">
+        Adicionar um novo serviço
+      </button>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+</ion-content>
+<ion-footer class="border-0">
+  <button (click)="mostrarOpcoesOrcamento(orcamento)" class="btn btn-primary btn-lg btn-block fix-btn text-left"
+    type="button">
+    <span class="float-left">
+      <ion-icon name="albums-outline"></ion-icon>
+      Salvar <span>orçamento</span>
+    </span>
+  </button>
+</ion-footer>

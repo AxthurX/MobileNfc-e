@@ -28,5 +28,4 @@ export class Pecas {
   unidade: number;
   preco_unitario: number;
   quantidade: number;
-  preco: number;
 }

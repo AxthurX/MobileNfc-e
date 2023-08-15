@@ -150,7 +150,7 @@
                   <td class="border-0">{{ item.unidade }}</td>
                   <td class="border-0 text-nowrap px-4">{{ item.preco_unitario }}</td>
                   <td class="border-0 px-4">{{ item.quantidade }}</td>
-                  <td class="border-0 px-0">{{ item.preco * item.quantidade }}</td>
+                  <td class="border-0 px-0">{{ item.preco_unitario * item.quantidade }}</td>
                 </tr>
               </table>
             </div>
@@ -242,13 +242,3 @@
     </div>
   </div>
 </ion-content>
-
-<ion-footer class="border-0">
-  <button [disabled]="gerando" class="btn btn-primary btn-lg btn-block fix-btn text-left" type="button">
-    <span class="float-left">
-      <ion-icon name="document-text-outline"></ion-icon>
-      Exportar para PDF
-      <ion-spinner *ngIf="gerando" name="bubbles"></ion-spinner>
-    </span>
-  </button>
-</ion-footer>

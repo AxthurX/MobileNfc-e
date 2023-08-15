@@ -9,11 +9,9 @@ import { Comprovante } from './comprovante.model';
   styleUrls: ['./comprovante.component.scss'],
 })
 export class ComprovanteComponent {
-  consultando: boolean;
   dadosEmpresaLogada: DadosEmpresa;
-  constructor(private rota: Router) {
-    this.consultando = false;
-  }
+  consultando: boolean = false;
+  constructor(private rota: Router) {}
 
   doRefresh(event: any) {
     setTimeout(() => {

@@ -13,6 +13,7 @@ import {
 import { ModalController } from '@ionic/angular';
 import { OverlayService } from 'src/app/core/service/overlay.service';
 import { Util } from 'src/app/core/util.model';
+import { Orcamento } from '../orcamento.model';
 
 @Component({
   selector: 'app-detalhe-orcamento',
@@ -21,9 +22,12 @@ import { Util } from 'src/app/core/util.model';
 })
 export class DetalheOrcamentoComponent implements OnInit {
   @ViewChild('imprimir') imprimir: ElementRef;
+  orcamento: Orcamento;
+  orcamentos: Orcamento[] = [];
   date_now: string;
   gerando: boolean;
   base64: string;
+  soma: number;
 
   constructor(
     private modal: ModalController,
@@ -40,12 +44,14 @@ export class DetalheOrcamentoComponent implements OnInit {
 
   ngOnInit() {
     try {
-      const data = new Date();
       this.date_now = formatDate(new Date(), 'dd/MM/yyyy', 'pt-BR');
-
-      // setTimeout(() => {
-      //   this.downloadPdf();
-      // }, 200);
+      this.soma = this.orcamento.servico.reduce(
+        (acc, item) => acc + item.valor_unitario * item.quantidade,
+        0
+      );
+      setTimeout(() => {
+        this.downloadPdf();
+      }, 200);
     } catch (e) {
       Util.TratarErro(e);
     }
@@ -65,7 +71,7 @@ export class DetalheOrcamentoComponent implements OnInit {
         const options: PDFGeneratorOptions = {
           documentSize: 'A4',
           type: 'share',
-          fileName: 'comprovante.pdf',
+          fileName: 'orçamento.pdf',
         };
         this.pdf
           .fromData(
@@ -79,22 +85,22 @@ export class DetalheOrcamentoComponent implements OnInit {
           </html>`,
             options
           )
-          .then((base64: any) => {
+          .then(() => {
             this.limparDadosGerando();
             this.overlay.dismissLoadCtrl();
             this.gerando = false;
             this.modal.dismiss();
           })
           .catch((e: any) => {
-            this.overlay.dismissLoadCtrl();
-            Util.TratarErro(e);
-            this.limparDadosGerando();
             this.gerando = false;
+            this.overlay.dismissLoadCtrl();
+            this.limparDadosGerando();
+            Util.TratarErro(e);
           });
       } catch (e) {
-        Util.TratarErro(e);
-        this.limparDadosGerando();
         this.gerando = false;
+        this.limparDadosGerando();
+        Util.TratarErro(e);
       }
     }, 500);
   }

@@ -23,12 +23,10 @@ export class DetalheComprovanteComponent implements OnInit, OnDestroy {
   comprovante: Comprovante;
   comprovantes: Comprovante[] = [];
   gerando: boolean;
-  count: number = 10;
   base64: string;
   date_now: string;
   soma: number;
   ano: number;
-  contador: number;
 
   constructor(
     private modal: ModalController,
@@ -48,17 +46,11 @@ export class DetalheComprovanteComponent implements OnInit, OnDestroy {
       const data = new Date();
       this.ano = data.getFullYear();
       this.soma = this.comprovante.pecas.reduce(
-        (acc, item) => acc + item.preco * item.quantidade,
+        (acc, item) => acc + item.preco_unitario * item.quantidade,
         0
       );
 
-      // this.quantidade = this.comprovante.pecas.reduce(
-      //   (acc, item) => acc + Number(item.quantidade), 0 );
-
       this.date_now = formatDate(new Date(), 'dd/MM/yyyy', 'pt-BR');
-      setInterval(() => {
-        this.count++;
-      }, 100);
       const modalState = {
         modal: true,
         desc: 'fake state for our modal',
