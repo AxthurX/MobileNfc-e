@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.ionic.starter" version="0.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Center Comprovante</name>
     <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Arthur Lta desenvolvimento</author>
-    <content original-src="index.html" src="http://localhost:8101" />
+    <author email="arthurmartins696@gmail.com">Arthur Lta desenvolvimento</author>
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -109,5 +109,5 @@
     <allow-navigation href="http://192.168.40.81:8100" sessionid="926e46c9" />
     <allow-navigation href="http://172.18.160.1:8100" sessionid="dd4ca6f6" />
     <allow-navigation href="http://172.27.160.1:8100" sessionid="b94b404e" />
-    <allow-navigation href="http://localhost:8101" sessionid="b47c6a32" />
+    <allow-navigation href="http://localhost:8101" sessionid="e6640fed" />
 </widget>

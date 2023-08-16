@@ -4,9 +4,7 @@ export class Orcamento {
   cpf_cnpj: string;
   servico: Servico[] = [];
   observacao: string;
-  dados_pagamento: string;
-  formas_pagamento: string;
-  nao_incluso: string;
+  total_geral: number;
 }
 
 export class Servico {

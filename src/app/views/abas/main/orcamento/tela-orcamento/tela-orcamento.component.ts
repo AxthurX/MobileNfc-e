@@ -146,12 +146,37 @@ export class TelaOrcamentoComponent implements OnInit {
 
   async OnSalvar(orcamento: Orcamento) {
     try {
+      if (!orcamento.contratante) {
+        Util.AlertWarning('O campo de contratante está em branco!');
+        this.carregando = false;
+        return;
+      }
+
+      if (!orcamento.cpf_cnpj) {
+        Util.AlertWarning('O campo de cpf e cnpj está em branco!');
+        this.carregando = false;
+        return;
+      }
+
+      if (!orcamento.observacao) {
+        Util.AlertWarning('O campo de observação está em branco!');
+        this.carregando = false;
+        return;
+      }
+
+      if (orcamento.servico.length < 1) {
+        Util.AlertWarning('Selecione pelos menos um serviço!');
+        this.carregando = false;
+        return;
+      }
+
       const modal = await this.modal.create({
         component: DetalheOrcamentoComponent,
         componentProps: { orcamento },
       });
       await modal.present();
     } catch (e) {
+      Util.TratarErro(e);
       this.modal.dismiss();
     }
   }

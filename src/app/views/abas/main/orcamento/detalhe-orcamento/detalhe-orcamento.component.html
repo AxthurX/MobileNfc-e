@@ -17,13 +17,13 @@
         <div class="container mr-4">
           <table class="table text-center">
             <thead>
-              <tr class="alert-info">
-                <th colspan="3" class="col-auto border-light text-center">
+              <tr style="background-color: rgba(64, 134, 220, 0.324)">
+                <th colspan="3" class="col-auto border border-dark text-center">
                   <span class="text-dark">
                     Contratante :{{orcamento.contratante}}
                   </span>
                 </th>
-                <th colspan="2" class="col-auto border-light text-center">
+                <th colspan="2" class="col-auto border border-dark text-center">
                   <span class="text-dark">
                     CNPJ: {{orcamento.cpf_cnpj}}
                   </span>
@@ -31,51 +31,68 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="alert-info text-center text-dark">
-                <td class="col-auto border-light text-decoration-underline">
+              <tr class="text-center text-dark" style="background-color: rgba(64, 134, 220, 0.324)">
+                <td class="col-auto border border-dark text-decoration-underline">
                   <b> Descrição prod. </b>
                 </td>
-                <td class="col-auto border-light text-decoration-underline">
+                <td class="col-auto border border-dark text-decoration-underline">
                   <b> Descrição serv. </b>
                 </td>
-                <td class="col-auto border-light text-decoration-underline">
+                <td class="col-auto border border-dark text-decoration-underline">
                   <b> Qtde. </b>
                 </td>
-                <td class="col-auto border-light text-decoration-underline">
+                <td class="col-auto border border-dark text-decoration-underline">
                   <b> Valor unit. </b>
                 </td>
-                <td class="col-auto border-light text-decoration-underline">
+                <td class="col-auto border border-dark text-decoration-underline">
                   <b> Valor total. </b>
                 </td>
               </tr>
               <tr class="text-center" *ngFor="let item of orcamento.servico">
-                <td class="col-auto border-light">{{item.descricao_produto}}</td>
-                <td class="col-auto border-light">{{item.descricao_servico}}</td>
-                <td class="col-auto border-light">{{item.quantidade}}</td>
-                <td class="col-auto border-light">R$ {{item.valor_unitario}}</td>
-                <td class="col-auto border-light">R$ {{item.quantidade * item.valor_unitario}}</td>
+                <td class="col-auto border border-dark">{{item.descricao_produto}}</td>
+                <td class="col-auto border border-dark">{{item.descricao_servico}}</td>
+                <td class="col-auto border border-dark">{{item.quantidade}}</td>
+                <td class="col-auto border border-dark">R$ {{item.valor_unitario}}</td>
+                <td class="col-auto border border-dark">R$ {{item.quantidade * item.valor_unitario}}</td>
               </tr>
               <tr>
                 <td colspan="3" class="border-0"></td>
-                <td class="border-light">Total geral</td>
-                <td class="border-light bg-info text-dark">R$ {{soma}}</td>
+                <td class="border border-dark">Total geral</td>
+                <td class="border border-dark text-dark" style="background-color: rgba(64, 134, 220, 0.324)">
+                  R$ {{orcamento.total_geral}}
+                </td>
               </tr>
             </tbody>
           </table>
-          <div class="d-flex flex-column py-3">
-            <div class="border py-4 px-3">
-              <b>
-                <div>{{orcamento.observacao}}</div>
-                <div>Não está incluso: {{orcamento.nao_incluso}}</div>
-                <div>FORMA DE PAGAMENTO: {{orcamento.formas_pagamento}}</div>
-                <div>Dados para pagamento: {{orcamento.dados_pagamento}}</div>
-                <div>Chave Pix: 69993364013 Center Clima refri. e Climatiz. LTDA</div>
-              </b>
+          <div class="d-flex flex-column py-2">
+            <div class="container-fluid border border-dark p-5 text-center"
+              style="overflow-wrap: break-word; word-break: break-word; hyphens: auto;">
+              <h6>{{orcamento.observacao}}</h6>
             </div>
-            <div class="alert-warning border-top text-center px-4 py-3">
+            <div class="border border-dark text-center px-4 py-3" style="background-color: rgba(246, 159, 87, 0.43);">
               <h5 class="text-dark">
-                <b> Data: {{ date_now }} - Validade da proposta 30 dias </b>
+                <b> Data: {{ date_now }} - Validade da proposta 30 dias. </b>
               </h5>
+            </div>
+            <div class="container-fluid" style="margin-top: .8rem;">
+              <div style="margin: 0;">
+                <span style="margin-right: .5rem;" class="bi-telephone"></span>(69) 99336-4013
+              </div>
+              <div style="margin: 0;">
+                <span style="margin-right: .5rem;" class="bi-telephone"></span>(69) 99305-7346
+              </div>
+              <div style="margin: 0;">
+                <span style="margin-right: .5rem;" class="bi-envelope"></span> centerclimapvh@gmail.com
+              </div>
+              <div style="margin: 0;">
+                <span style="margin-right: .5rem;" class="bi-geo-alt"></span> Rua Agda muniz Nª 3658, Bairro Conceição
+              </div>
+              <div style="margin: 0;">
+                <span style="margin-right: .5rem;" class="bi-map"></span> Cnpj: 43.034.012/0001-40
+              </div>
+              <div style="margin: 0;">
+                <span style="margin-right: .5rem;" class="bi-person"></span>Téc. Osmar filho
+              </div>
             </div>
           </div>
         </div>
